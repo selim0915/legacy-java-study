@@ -1,0 +1,34 @@
+
+class Product{
+	
+}
+
+class Tv extends Product{
+	@Override
+	public String toString() {
+		return "Tv";
+	}
+}
+
+class Audio extends Product{
+	@Override
+	public String toString() {
+		return "Audio";
+	}
+}
+
+class NoteBook extends Product{
+	@Override
+	public String toString() {
+		return "NoteBook";
+	}
+}
+
+public class Ex07_Generic_Quiz {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

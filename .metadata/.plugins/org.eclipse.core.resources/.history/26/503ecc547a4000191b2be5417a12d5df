@@ -1,0 +1,30 @@
+import java.io.File;
+import java.io.IOException;
+
+//특정 폴더에서 검색 할 단어가 주어지면
+//그 단어가 포함 된 파일 목록 출력하기
+
+public class Ex12_PrintWrite_String_find {
+
+	String baseDir = "C:\\temp"; //검색할 디렉토리
+	String word="HELLO"; //검색할 단어
+	String save = "result.txt"; //검색결과를 출력 (???)
+	
+	public void Find() throws IOException{
+		File dir = new File(baseDir); //정보얻기
+		
+		if(!dir.isDirectory()) { //파일만 볼거라 디렉토리는 상관없는 상황
+			//디렉토리 아니야!
+			System.out.println("baseDir :" + "is not directory or exist");
+			System.exit(0);
+		}
+	} //Find()함수를 사용할 때 예외처리를 반드시 하게 함
+	
+	public static void main(String[] args) {
+		
+		
+		
+		
+	}
+
+}

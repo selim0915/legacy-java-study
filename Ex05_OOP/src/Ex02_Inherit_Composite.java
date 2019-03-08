@@ -23,7 +23,7 @@
  * }
  * 
  * 경찰, 총
- * 경찰은 총 이다(is a)xxx
+ * 경찰은 총 이다(is a) xxx
  * 경찰은 총을 가지고 있다(has a)oo
  * class 경찰{  } , class 총 { } 
  * class 경찰{

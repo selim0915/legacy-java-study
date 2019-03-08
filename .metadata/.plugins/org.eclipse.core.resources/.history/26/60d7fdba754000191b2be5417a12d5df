@@ -1,0 +1,19 @@
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.Writer;
+
+//PrintWriter 클래스를 사용하면 [출력형식 정의]
+//친척: System.out.printf(), String.format()
+public class Ex11_PrintWriter {
+
+	public static void main(String[] args) {
+		try {
+			Writer pw = new PrintWriter("C:\\Temp\\homework.txt");
+			//PrintWriter() : 파일이 없다면 생성하고, 있다면 오버라이트한다. 
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}

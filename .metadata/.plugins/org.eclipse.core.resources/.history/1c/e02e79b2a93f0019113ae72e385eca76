@@ -1,0 +1,22 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+
+public class Ex06_FileReader_FileWriter_Buffer {
+
+	public static void main(String[] args) {
+		
+		//파일이 없으면 만들까? 안만들까?
+		try {
+			FileWriter fw = new FileWriter("today.txt");
+			BufferedWriter bw = new BufferedWriter(fw);
+			
+			bw.write("로또");
+			bw.newLine(); // \n +\r 합한거(엔터)
+			bw.write("1,2,3,4,5");
+		} catch (Exception e) {
+			e.printStackTrace();
+		};
+		
+	}
+
+}

@@ -1,0 +1,44 @@
+import java.util.ArrayList;
+import java.util.List;
+
+import kr.or.bit.Emp;
+
+public class Ex08_Generic_Quiz {
+
+	public static void main(String[] args) {
+		//1. Emp클래스를 사용해서 사원3명을 생성하세요.
+		//단 ArrayList를 사용하세요.
+		List<Emp> emp = new ArrayList<>();
+		emp.add(new Emp(1, "김", "it"));
+		emp.add(new Emp(2, "우", "de"));
+		emp.add(new Emp(3, "신", "en"));
+		
+		
+		//2.3명의 사원정보(사번, 이름, 직종)을 개선된 for문으로 사용하세요.
+		//단 toString은 사용금지
+		for(Emp e : emp) {
+			System.out.println(e);
+		}
+		
+		
+		//3.3명의 사원정보(사번, 이름, 직종)을 일반 for문으로 사용하세요.
+		//단 toString은 사용금지
+		
+		
+		
+		//4. CopyEmp라는 클래스를 만드세요. (구조는 Emp와 같은데 job삭제 => sall추가)
+		//getter setter 구현
+		// ArratList<>사용해서 사원 3명을 만드세요.
+		// 출력
+		// 100, "김", 1000
+		// 200, "이", 2000
+		// 300, "박", 3000
+		
+		
+		
+		//5. 200번 사원의 급여를 5000으로 수정 해서 출력하세요.
+		//일반 for문 사용
+		
+	}
+
+}

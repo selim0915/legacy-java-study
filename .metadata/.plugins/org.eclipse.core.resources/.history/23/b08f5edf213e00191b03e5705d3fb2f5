@@ -1,0 +1,80 @@
+import java.util.HashSet;
+import java.util.Set;
+
+//set 인터페이스를 구현하고 있는 클래스
+// set: 순서가 없는 집합, 중복데이터도 허용하지 않음 => 순서x 중복x 데이터의 집합을 다룰 때
+// set을 부모로 두고있는 대표 클래스: hashSet, TreeSet
+// 순서를 보장하지 않아요. (넣은 순서를 보장하지않는다)
+
+public class Ex10_Set_Interface {
+
+	public static void main(String[] args) {
+		HashSet<Integer> hs =new HashSet<Integer>();
+		hs.add(1);
+		hs.add(100);
+		hs.add(55);
+		System.out.println(hs.toString());
+		
+		//1.검증
+		// 중복데이터는 들어가지 않는다.
+		boolean bo = hs.add(1);
+		System.out.println(bo); //false : 들어가지 않았다.
+		// 기존에 같은 데이터가 들어가 있으면 추가x
+		System.out.println(hs.toString());
+ 		hs.add(2);
+ 		System.out.println(hs.toString());
+ 		
+ 		HashSet<String> hs2 = new HashSet<String>();
+ 		hs2.add("b");
+ 		hs2.add("A");
+ 		hs2.add("F");
+ 		hs2.add("c");
+ 		hs2.add("z");
+ 		System.out.println(hs2.toString());
+ 		
+ 		
+ 		//1. 중복데이터를 허락하지 않아요 (일상 생활 속에서 사용하는 상황?)
+ 		String[] obj = {"A","B","A","C","D","B","A"};
+ 		HashSet<String> hs3 = new HashSet<String>();
+ 		for(int i=0; i<obj.length; i++) {
+ 			hs3.add(obj[i]);
+ 		}
+ 		System.out.println(hs3.toString());
+ 		
+ 		
+ 		//Quiz
+ 		//HashSet을 사용해서 1~45까지 난수6개를 넣으세요.
+ 		HashSet<Integer> hs4 = new HashSet<Integer>();
+ 		for(int i=0; hs4.size()<6; i++) {
+ 			hs4.add((int)(Math.random()*45)+1);
+ 		}
+ 		System.out.println(hs4.toString());
+ 		
+ 		
+ 		Set set = new HashSet();// 다형성 부모타입으로 받았다..!
+ 		//System.out.println(set.size());
+ 		for(int i=0; set.size()<6; i++) { //무턱대고 6번을 돌리는것이 아니라.. set.size() 값이 들어있는 만큼횟수만 돌게
+ 			int num = (int)(Math.random()*45)+1;
+ 			set.add(num);
+ 		}
+ 		System.out.println(set.toString());
+ 		
+ 		
+ 		//while
+ 		Set set2 = new HashSet();
+ 		int i =0;
+ 		while(set2.size()<6) {
+ 			System.out.println("index: "+ (++i));
+ 			set2.add((int)(Math.random()*45)+1);
+ 			i++;
+ 			if(i>=6) break;
+ 		}
+ 		System.out.println(set2.toString());
+ 		
+ 		
+ 		
+ 		
+ 		
+	}
+
+}

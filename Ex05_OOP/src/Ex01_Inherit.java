@@ -51,6 +51,8 @@ public class Ex01_Inherit {
 		System.out.println(c.fmoney); //아버지 돈도 내돈
 		System.out.println(c.cmoney); //내돈은 내돈
 		//System.out.println(c.pmoney); //private는 접근 불가! 상속도 접근 못함
+		int a=c.gmoney+c.fmoney+c.cmoney;
+		System.out.println(a); 
 	}
 
 }

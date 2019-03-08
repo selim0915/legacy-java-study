@@ -1,0 +1,33 @@
+import java.util.HashMap;
+
+//Today Point
+//HashMap<k,v>
+//HashMap<String ,String>
+//HashMap<Integer, String>
+//HashMap<String, Emp> Point >> value객체가 올수있다.. 
+
+//Io, Network, Thread >> ArrayList<Emp>, HashMap<String, Emp> 코드 활용
+
+
+class Student{
+	int kor = 100;
+	int math=80;
+	int eng=20;
+	String name;
+	
+	Student(String name){
+		this.name = name;
+	}
+}
+
+public class Ex14_hashMap_Generic {
+
+	public static void main(String[] args) {
+		HashMap<String, Student> student = new HashMap<String, Student>();
+		student.put("hong", new Student("홍길동"));
+		
+		
+		
+	}
+
+}

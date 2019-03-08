@@ -1,0 +1,38 @@
+
+class Vtest{
+	int iv;
+	void print() {
+		System.out.println("instance variable: "+iv);
+	}
+}
+
+class Apt{
+	String color; // 사실 String은 클래스이다. 참조변수
+	
+	// 함수 (좀 특별, 이유: 함수이름이 클래스와 똑같아서) = 생성자함수(constructor)
+	// Apt(){}; = defualt constructor
+	Apt(String color){
+		this.color = color;
+	}
+	
+	void aptPrint() {
+		System.out.println("색상: " + this.color);
+	}
+	
+}
+
+public class Ex02_variable {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Vtest t = new Vtest();
+		t.print();
+	
+		Vtest t2 = new Vtest();
+		t2.iv=300;
+		t2.print();
+		
+		Apt sk = new Apt();
+	}
+
+}

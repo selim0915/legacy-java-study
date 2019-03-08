@@ -1,0 +1,28 @@
+
+class Product{//가전제품
+	int price;
+	int bonuspoint;
+	
+	Product(int price){
+		this.price = price;
+		this.bonuspoint = (int)(this.price/10.0);
+	}
+}
+
+class KtTv extends Product{
+	
+	//가격 세팅
+	KtTv(int price, int bonuspoint){
+		this.price = price;
+		this.bonuspoint = bonuspoint;
+	}
+}
+
+public class Ex12_Inherit_KwtPoint {
+
+	public static void main(String[] args) {
+		
+		
+	}
+
+}

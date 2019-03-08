@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="C:\FrontEndBackEnd\JAVA\Labs\Ex07_ETC"/>
+		<item value="C:\FrontEndBackEnd\JAVA\Labs\Ex06_OOP"/>
+		<item value="C:\FrontEndBackEnd\JAVA\Labs\Ex05_OOP"/>
+		<item value="C:\FrontEndBackEnd\JAVA\Labs\Ex04_Array"/>
+		<item value="C:\FrontEndBackEnd\JAVA\Labs\Ex03_OOP_Basic"/>
+		<item value="C:\FrontEndBackEnd\JAVA\Labs\Ex02_Scope_Location"/>
+		<item value="C:\FrontEndBackEnd\JAVA\Labs\Ex01_Basic"/>
+		<item value="C:\FrontEndBackEnd\JAVA\Labs\Ex00_Ex"/>
+		<item value="C:\FrontEndBackEnd\JAVA\Labs"/>
+	</list>
+	<section name="NewWizardAction">
+	</section>
+</section>

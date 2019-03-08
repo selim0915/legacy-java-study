@@ -1,44 +1,38 @@
 
 public class Ex04_DataType {
-
 	public static void main(String[] args) {
-		//메서드 안쪽에 적는 변수는 지역변수
-		
-		byte b = 100;
-		System.out.println(b);
-		
-		int i = 12345;
-		System.out.println(i);
-		
-		long l = 10000000001L;
-		System.out.println(l);
-		
-		float f = 3.14f;
-		System.out.println(f);
-		
-		double d = 3.14159265358979323;
-		System.out.println(d);
-		
-		boolean bo = true;
-		System.out.println(bo);
-		
-		String str = "홍길동";
-		System.out.println(str);
-		
-		char ch = 'A';
-		System.out.println(ch);
-		
-		char sing = '\''; //내가 입력한 값을 출력하고 싶을 때 특수문자 이용
-		// JAVA: 특수문자로 문자를 인지 시킬 수 있다. \로
-		System.out.println(sing);
-		
-		// 홍"길"동 을 표현하고 싶다.
-		String name = "홍\"길\"동";
-		System.out.println(name); //'= 쿼테이션, "=더블쿼테이션
-		
-		//C://Temp 문자열 출력
-		String s = "C:\\Temp";
-		System.out.println(s);
+	    byte b = 100;
+	    System.out.println(b);
+	    
+	    int i = 12345;
+	    System.out.println(i);
+	    
+	    long l = 100000000000L; // 정수 리터럴은 int
+	    System.out.println(l);
+	    
+	    float f = 3.14f; // 실수 리터럴은 double
+	    System.out.println(f);
+	    
+	    double d = 3.141924567;
+	    System.out.println(d);
+	    
+	    boolean bo = true;
+	    
+	    char ch = 'A';
+	    
+	    String str = "홍길동";
+	    
+	    // Tip) Java 특수문자 사용: \ 역슬래시
+	    
+	    char sing = '\''; // 내가 입력한 것이 값이다.
+	    System.out.println(sing);
+	    
+	    // 홍"길"동 >> 자체를 데이터(값)
+	    String name = "홍\"길\"동";
+	    System.out.println(name);
+	    
+	    // 화면에 C:\Temp라는 문자열을 출력해보세요.
+	    String path = "C:\\Temp";
+	    System.out.println(path);
 	}
-
 }

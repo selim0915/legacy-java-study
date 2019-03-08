@@ -1,0 +1,20 @@
+import kr.or.bit.Emp;
+
+public class Ex03_ArrayList_Object_KeyPoint {
+
+	public static void main(String[] args) {
+		
+		//객체배열
+		//1.사원 1명의 정보를 담으세요.
+		Emp e = new Emp(100,"김유신","군인");
+		System.out.println(e.toString());
+		
+		
+		//사원2명을 만들어라
+		Emp[] emplist = {new Emp(10, "kim", "it developer"), new Emp(20, "park", "sales")};
+		for(Emp emp : emplist) {
+			System.out.println(emp.toString());
+		}
+	}
+
+}

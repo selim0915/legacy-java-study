@@ -1,0 +1,224 @@
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+ 
+// 은행
+class Bank {
+    private ArrayList<Account> accounts; // 계좌(0개이상)
+    private int totalAccount; // 총계좌수
+    
+//    private boolean b;
+//    
+//    public boolean isB() {
+//		return b;
+//	}
+//
+//	public void setB(boolean b) {
+//		this.b = b;
+//	}
+
+    class Bank {
+    	private ArrayList<Account> accounts; // 계좌(0개이상)
+    	private int totalAccount; // 총계좌수
+    	private FileReader fr;
+    	private BufferedReader br;
+    	private FileWriter fw;
+    	private BufferedWriter bw;
+    	
+
+    	Bank() {
+    		accounts = new ArrayList<Account>();
+    		totalAccount = 0;
+    	}
+
+    	// 계좌를 생성한다
+    	public void addAccount(String accountNo, String name) {
+    		
+    		if(accounts.isEmpty()) {
+    			accounts.add(new Account(accountNo, name));
+    			this.totalAccount++;
+    			return;
+    		}else {
+    			for(Account ac : accounts) {
+    				if(ac.getAccountNo().equals(accountNo)) {
+    					System.out.println("중복 된 계좌번호 입니다.");
+    					return;
+    				}else {
+    					accounts.add(new Account(accountNo, name));
+    					this.totalAccount++;
+    					return;
+    				}
+    			}
+    		}
+    				
+    	}
+
+    	// 계좌를 찾는다(계좌번호로)
+    	public Account getAccount(String accountNo) {
+    		Account ac = null;
+    		for (Account act : accounts) {
+    			if (act.getAccountNo().equals(accountNo)) {
+    				ac = act;
+    			}
+    		}
+    		return ac;
+    	}
+
+    	// 계좌를 찾는다(소유자명으로)
+    	public ArrayList<Account> findAccount(String name) {
+    		ArrayList<Account> ac = new ArrayList<Account>();
+    		for (Account act : accounts) {
+    			if (act.getName().equals(name)) {
+    				ac.add(act);
+    				break;
+    			}
+    		}
+    		return ac;
+    	}
+
+    	// 계좌목록을 본다
+    	public ArrayList<Account> getAccounts() {
+    		return accounts;
+    	}
+
+    	// 총 계좌수를 반환한다
+    	public int getTotalAccount() {
+    		return totalAccount;
+    	}
+    	
+    	public void banksave() {
+    		try {
+    			
+    			
+    			fw = new FileWriter("C:\\Temp\\account.txt",true);
+    			bw = new BufferedWriter(fw);
+    			for(Account ac : accounts) {
+    				
+    				bw.write(ac.toString());
+    				bw.newLine();
+    			}
+    			
+    		} catch (Exception e) {
+    			e.printStackTrace();
+    		}finally {
+    			try {
+    				bw.close();
+    				fw.close();
+    			} catch (IOException e) {
+    				// TODO Auto-generated catch block
+    				e.printStackTrace();
+    			}
+    			
+    		}
+    	}
+    	
+    	public void bankload() {
+    		
+    	}
+    }
+ 
+//계좌
+class Account {
+	private String accountNo; // 계좌번호
+	private String name; // 소유자명
+	private long balance; // 잔고
+	private ArrayList<Transaction> transaction; // 거래내역(0개이상)
+	private Calendar cal;  // 캘린더
+	private SimpleDateFormat dateFormat;  // 현재 날짜
+	private SimpleDateFormat timeFormat;  // 현재 시간
+	public Account(String accountNo, String name) {
+		this.accountNo = accountNo;
+		this.name = name;
+		this.balance = 0;
+		this.transaction = new ArrayList<Transaction>();
+		cal = Calendar.getInstance();
+		dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		timeFormat = new SimpleDateFormat("HH:mm:ss");
+	}
+	public String getAccountNo() {
+		return accountNo;
+	}
+	public String getName() {
+		return name;
+	}
+	// 입금한다
+	public void deposit(long amount) {
+		this.balance += amount;
+		transaction.add(new Transaction(dateFormat.format(cal.getTime()), timeFormat.format(cal.getTime()), "입금",
+				amount, balance));
+	}
+	// 출금한다
+	public void withdraw(long amount) {
+		if (balance < amount) {
+			System.out.println("잔고가 부족합니다");
+		} else {
+			this.balance -= amount;
+			transaction.add(new Transaction(dateFormat.format(cal.getTime()), timeFormat.format(cal.getTime()), "출금",
+					amount, balance));
+		}
+	}
+
+	// 잔고를 확인한다
+	public long getBalance() {
+		return balance;
+
+	}
+
+	// 거래내역을 본다
+	public ArrayList<Transaction> getTransactions() {
+		return transaction;
+
+	}
+
+	@Override
+	public String toString() {
+		return "계좌번호 = " + accountNo + ", 소유자 = " + name + ", 잔고 = " + balance + ", " + getTransactions() + "\n";
+	}
+}
+ 
+//거래내역
+class Transaction {
+    private String transactionDate; // 거래일
+    private String transactionTime; // 거래시간
+    private String kind; // 구분(입금 또는 출금)
+    private long amount; // 거래금액
+    private long balance; // 잔고
+ 
+    public Transaction(String transactionDate, String transactionTime, String kind, long amount, long balance) {
+        this.transactionDate = transactionDate;
+        this.transactionTime = transactionTime;
+        this.kind = kind;
+        this.amount = amount;
+        this.balance = balance;
+    }
+ 
+    @Override
+    public String toString() {
+        return "거래일 = " + transactionDate + ", 거래시간 = " + transactionTime 
+        		+ ", 구분 = " + kind + ", 거래금액 = " + amount + ", 잔고 = " + balance + "\n";
+    }
+}
+ 
+public class Ex05_Bank {
+ 
+    public static void main(String[] args) {
+        Bank bank = new Bank();
+        bank.addAccount("110398349277", "권태환");
+        bank.addAccount("110234598373", "정진호");
+        bank.addAccount("110859342648", "김동민");
+        bank.addAccount("110759835759", "우세림");
+        bank.addAccount("110874950438", "장지훈");
+        bank.addAccount("110847247358", "윤종석");
+ 
+        bank.getAccount("110398349277"); // 계좌번호로 계좌찾기
+        bank.findAccount("권태환"); // 예금주로 계좌찾기
+        System.out.println(bank.getTotalAccount()); // 등록되어있는 계좌 개수
+        bank.getAccounts().get(0).deposit(1000);
+        bank.getAccounts().get(0).withdraw(200);
+        System.out.println(bank.getAccounts().get(0).getBalance());
+        bank.findAccount("권태환");
+ 
+    }
+ 
+}
