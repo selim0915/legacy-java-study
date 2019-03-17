@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="C:\dev\GIT\bit_sr\Ex10_Thread"/>
+		<item value="C:\dev\GIT\bit_sr\Ex09_IO"/>
+		<item value="C:\dev\GIT\bit_sr\Ex08_Collection_Framework"/>
+		<item value="C:\dev\GIT\bit_sr\Ex07_ETC"/>
+		<item value="C:\dev\GIT\bit_sr\Ex06_OOP"/>
+		<item value="C:\dev\GIT\bit_sr\Ex05_OOP"/>
+		<item value="C:\dev\GIT\bit_sr\Ex04_Array"/>
+		<item value="C:\dev\GIT\bit_sr\Ex03_OOP_Basic"/>
+		<item value="C:\dev\GIT\bit_sr\Ex02_Scope_Location"/>
+		<item value="C:\dev\GIT\bit_sr\Ex01_Basic"/>
+		<item value="C:\dev\GIT\bit_sr\Ex00_Ex"/>
 		<item value="C:\FrontEndBackEnd\JAVA\Labs\Ex07_ETC"/>
 		<item value="C:\FrontEndBackEnd\JAVA\Labs\Ex06_OOP"/>
 		<item value="C:\FrontEndBackEnd\JAVA\Labs\Ex05_OOP"/>
