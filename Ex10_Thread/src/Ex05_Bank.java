@@ -32,6 +32,7 @@ class Bank {
     
     // 계좌를 생성한다
     public void addAccount(String accountNo, String name) {
+        //accounts.add(new Account(accountNo, name));
     	nameAccount.put(name, new Account(accountNo, name));
     	accountNoAccount.put(accountNo, new Account(accountNo, name));
     	
@@ -53,21 +54,19 @@ class Bank {
     //계좌를 본다
 	public Map<String, Account> getAccountNoAccount() {
 		Set<String> set =accountNoAccount.keySet();
-		List<String> li = new ArrayList<>(set); //set은 정렬이 안되있어서 출력할 때 sort해주려고 list에 담음
+		List<String> li = new ArrayList<>(set);
 		Collections.sort(li);
 		
 		Iterator<String> it = li.iterator();
 		while(it.hasNext()) {
 			String aa =it.next();
-			System.out.println(accountNoAccount.get(aa)); //get으로 가져올 수 있는것.. hashmap, list, set..
+			System.out.println(accountNoAccount.get(aa));
 		}
-		
 		return accountNoAccount;
 	}
 	
 	// 총 계좌수를 반환한다
     public int getTotalAccount() {
-    	System.out.println("총 계좌 수: "+totalAccount);
         return totalAccount;
     }
 
@@ -82,7 +81,6 @@ class Account {
     private Calendar cal;  // 캘린더
     private SimpleDateFormat dateFormat;  // 현재 날짜
     private SimpleDateFormat timeFormat;  // 현재 시간
-    
     public Account(String accountNo, String name) {
         this.accountNo = accountNo;
         this.name = name;
@@ -92,14 +90,12 @@ class Account {
         dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         timeFormat = new SimpleDateFormat("HH:mm:ss");
     }
-    
     public String getAccountNo() {
         return accountNo;
     }
     public String getName() {
         return name;
     }
-    
     // 입금한다
     public void deposit(long amount) {
         this.balance += amount;
@@ -164,21 +160,17 @@ public class Ex05_Bank {
     public static void main(String[] args) {
     	
         Bank bank = new Bank();
-        //계좌추가 테스트
         bank.addAccount("110398349277", "권태환");
         bank.addAccount("110234598373", "정진호");
         bank.addAccount("110859342648", "김동민");
         bank.addAccount("110759835759", "우세림");
         bank.addAccount("110874950438", "장지훈");
         bank.addAccount("110847247358", "윤종석");
-        //계좌번호로 계좌찾기
+        
+        
         bank.getAccount("110398349277");
-        //이름으로 계좌찾기
         bank.findAccount("윤종석");
-        //전체계좌 조회
         bank.getAccountNoAccount();
-        //총 계좌 수
-        bank.getTotalAccount();
  
 //        bank.getAccount("110398349277"); // 계좌번호로 계좌찾기
 //        bank.findAccount("권태환"); // 예금주로 계좌찾기

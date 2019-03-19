@@ -36,7 +36,7 @@ class Test {
 	}
 }
 
-public class Ex01_Variable { 
+public class Ex01_variable { 
 
 	public static void main(String[] args) {
 		int s = 5; // local variable 지역변수(main함수 안) >> 선언과 동시에 초기화

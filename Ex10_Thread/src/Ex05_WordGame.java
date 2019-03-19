@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  
   hint 공유자원 static자원의 활용
   
- */
+*/
 
 public class Ex05_WordGame {
 	static boolean Inputcheck = false;
@@ -28,8 +28,28 @@ public class Ex05_WordGame {
 		Thread w2 = new Thread(w);
 		w2.start();
 
+		try {
+			w2.join(); //w2가 끝날때까지 main함수야 기다려 줘
+			t2.join();
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		}
+		
+		
+		//join() : 다른 스레드의 종료를 기다리는 것 (다중 계산작업에 주로 사용) 
+		//경마게임 최종 순위를 구해줄 때
+		
 		System.out.println("main END...");
 
+		//word.join() : main thread에게 내가  끝날 때까지 기다려 달라 함
+		//				: main함수가 word라는 thread를 가지고 있다.
+		//time.join() : main thread에게 내가 끝날 때까지 기다려 달라 함
+						
+		//main함수에게 기다려 달라고 내가 업무를 끝날 때까지..  word, time
+		
+		//join 메소드는 하나의 스레드가 다른 스레드가 하는 일이 완료될 때까지 기다리도록 할때사용
+		//가령 현재 돌아가고 있는 스레드(A)에서 다른 스레드(B)가 기다려 할라고 하면  >   B.join()
 	}
 
 }
@@ -51,6 +71,7 @@ class time implements Runnable { //시간
 		}
 	}
 }
+ 
 
 class word implements Runnable { //입력값
 

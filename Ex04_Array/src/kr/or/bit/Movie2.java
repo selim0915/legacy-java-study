@@ -6,8 +6,8 @@ public class Movie2 {
 
 	public static void main(String[] args) {
 		Movie2 m = new Movie2();
-		//m.selectMovieMenu();
-		m.moviePrint();
+		m.selectMovieMenu();
+		//m.moviePrint();
 	}
 
 	private String[][] arr;

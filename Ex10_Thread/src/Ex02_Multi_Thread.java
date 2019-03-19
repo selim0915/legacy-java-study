@@ -30,7 +30,7 @@ class Thread_1 extends Thread{ //Thread 별도의 스텍에서 운영이 가능�
 		//메인함수의 역할을 한다.
 		
 		for(int i =0; i<1000; i++) {
-			System.out.println("Thread_1 :" + i + this.getName());
+			System.out.println("Thread_1 :" + i +"  " + this.getName());
 		}
 		System.out.println("Thread_1 run END ...");
 	 }
