@@ -1,5 +1,9 @@
 package jinho.ex;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 public class Ex0319 {
 
 	public static void main(String[] args) {
@@ -75,9 +79,18 @@ public class Ex0319 {
 		tvm.tv.chUp();
 		System.out.println("TV채널:" + tvm.tv.ch);
 		tvm.tv.chDown();
+		tvm.tv.likeCh();
 		tvm.tv.chDown();
 		tvm.tv.chDown();
 		System.out.println("TV채널:" + tvm.tv.ch);
+		tvm.tv.chUp();
+		tvm.tv.chUp();
+		tvm.tv.likeCh();
+		tvm.tv.chUp();
+		tvm.tv.chUp();
+		System.out.println("TV채널:" + tvm.tv.ch);
+		tvm.tv.likeCh();
+		
 	}
 
 }
@@ -113,9 +126,19 @@ class Tv {
 		String val =(power == true) ? "o" : "x";
 		System.out.println("전원상태: "+val);
 	}
+//	String chPower() {
+//		return (power == true) ? "o" : "x";
+//	}
 	
-	String chPower() {
-		return (power == true) ? "o" : "x";
+	void likeCh() {
+		List<Integer> li = new ArrayList<Integer>();
+		li.add(ch);
+		
+		System.out.println("선호한 채널 목록");
+		Iterator<Integer> it =li.iterator();
+		while(it.hasNext()) {
+			System.out.println(it.next());
+		}
 	}
 }
 
