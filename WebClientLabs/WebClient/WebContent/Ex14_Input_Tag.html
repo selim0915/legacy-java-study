@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Form(Input Tag)</title>
+</head>
+<body>
+	<!-- 
+	input 태그
+	1. id="userid" > id속성은 (UI) CSS, Javascript에 유효성 작업, UI변경 작업
+	2. name="userid" > name속성은 데이터를 서버로 보낼 때 변수역할
+					> login.jsp?userid=kkk&pwd=1004
+					> point: name속성이 없으면 서버는 데이터를 받을 수 없다.
+	 -->
+	<form action="">
+		<fieldset>
+			<legend>Text : Password</legend>
+			Text: <input type="text" name="userid"> <br>
+			password: <input type="password" name="pwd" maxlength="5"> <br>
+			<hr>
+			Test2 : <input type="text" name="data" maxlength="10" size="70px" value="기본값"> <br>
+			readonly(읽기전용, 서버로 데이터 전송)
+			<input type="text" name="data2" value="hong" readonly> <br>
+			disabled(비활성화, 서버로 데이터 전송 불가)
+			<input type="text" name="data3" value="kim" disabled>
+		</fieldset>
+		
+		<fieldset>
+			<legend>체크박스(다중선택)</legend>
+			농구<input type="checkbox" name="sports_1" value="A" checked>
+			축구<input type="checkbox" name="sports_2" value="B" checked>
+			야구<input type="checkbox" name="sports_3" value="C" checked>
+			배구<input type="checkbox" name="sports_4" value="D" >
+			탁구<input type="checkbox" name="sports_5" value="E" >
+			
+		</fieldset>
+		<!-- 
+			서버로 전송: register.jsp?sports_1=A&sports_2=B&sports_3=C
+			JSP코드에서
+			String str = request.getParameter("sports_1");
+			str변수에는 A값이 담긴다.
+			String str = request.getParameter("sports_1");
+			String str2 = request.getParameter("sports_2");
+			String str3 = request.getParameter("sports_3");
+			...
+			
+			질문)
+			name이 다 같으면?
+			야구<input type="checkbox" name="sports" value="A" checked>
+			배구<input type="checkbox" name="sports" value="B" >
+			탁구<input type="checkbox" name="sports" value="C" >
+			
+			서버로 전송: reguster.jsp?sports=A&sports=B
+			
+			문제) 서버에서 받는 방법 >배열
+			String[] strarr = request.getParameter("sport");
+			strarr[0] = "A";
+			strarr[1] = "B";
+			strarr[2] = "C";
+			
+		 -->
+		
+		<fieldset>
+			<legend>select 태그(단일 선택: 년,월,일)</legend>
+			<select name="year">
+				<option value="2019">2019년</option>
+				<option value="2018" selected>2018년</option>
+				<option value="2017">2017년</option>
+			</select>	
+			<!-- 
+			register.jsp?year=2018
+			 -->
+		</fieldset>
+		
+		
+		<fieldset>
+			<legend>select 태그(다중 선택: checkbox처럼)</legend>
+			당신이 좋아하는 과목은?:
+			<select name="items" multiple>
+				<option value="01">JAVA</option>
+				<option value="02">ORACLE</option>
+				<option value="03">HTML</option>
+			</select>
+		</fieldset>
+		
+		<fieldset>
+			<legend>라디오버튼(단일선택: 성별(남,여))</legend>
+			남 <input type="radio" name="gender" value="1">
+			여 <input type="radio" name="gender" value="2" checked>
+			<!-- 
+			register.jsp?gender=1
+			 -->
+		</fieldset>
+		
+		<fieldset>
+			<legend>기타 등등</legend>
+			1. 화면에 출력이 안되요(소스는 가지고 있어요)
+			<input type="hidden" value="1000" name=""hdata> <br>
+			<!-- 데이터를 주고받을때 사용함 가끔 -->
+			2. 파일선택 (전송은 구현해야한다)
+			<input type="file" name="uploadimage"> <br>
+			3. 게시판 글쓰기(여러줄(row, cols))
+			<textarea rows="2" cols="10"></textarea> <br>
+			4. 각종 버튼들
+			<input type="button" value="나 눌러봐" onclick="alert('졸립다')"> <br>
+			이미지버튼(내부적으로 submit기능을 가지고 잇다) <input type="image" src="images/ok.png"> <br>
+			<input type="submit" value="전송">
+			<input type="reset" value="취소">
+			
+		</fieldset>
+		
+	</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
