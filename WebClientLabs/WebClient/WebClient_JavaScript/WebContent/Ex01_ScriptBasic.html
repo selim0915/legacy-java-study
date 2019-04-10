@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript</title>
+<script type="text/javascript">
+/* 
+	javascript 블록주석
+	
+	javascript (언어: web : 코드해석(웹 브라우져) : 라인단위해석(한줄식))
+	javascript (객체지향언어 : 내부적으로 class개념을 가지고 있다.)
+	
+	javascript 사용
+	1. html의 content, attribute [변경], [삭제], [추가] 동적으로
+	2. css content [변경], [삭제], [추가] 동적으로
+	3. 유효성 검증 (id, 주민번호 체크)
+	4. 동적인 웹 페이지 구성 가능
+	5. javascript 전세계적으로 많이 사용하는 언어
+		(좀더 편하게 쓰는 방법? > javascript framework   ex..Jquery.js, Augular.js, node.js(server), vue.js, react.js )
+		>장점: 개발시간 단축, 유지보수
+		>단점: lib에 종속된다. => framework을 만들 수있는 javascript학습이 필요하다.
+	6. 문법
+		-1. 대소문자를 엄격하게 구분한다.
+		-2. 종결자 사용한다. ;
+		-3. 데이터타입, 연산자, 제어문 (자바언어와 비슷하다)
+		
+*/		
+	//internal
+	//JAVA : public void call()
+	function call(){ //함수는 호출에 의해서
+		alert('internal');
+	}
+</script>
+
+	<style type="text/css"></style>
+	<script type="text/javascript" src="Script/common.js"></script>
+	
+</head>
+<body>
+	<h3>in-line</h3>
+	<input type="button" value="inline" onclick="alert('inline')">
+	<h3>internal</h3>
+	<input type="button" value="inline" onclick="call()">
+	<h3>external</h3>
+	<input type="button" value="external" onclick="excall()">
+	
+</body>
+</html>

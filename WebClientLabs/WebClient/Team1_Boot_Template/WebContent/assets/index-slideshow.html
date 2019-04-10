@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+<title>Team 1 until</title>
+<link rel="shortcut icon" href="img/favicon.ico" />
+<!--PUT YOUR FAVICON HERE-->
+<!--REQUIRED STYLE SHEETS-->
+<!--MAIN BOOTSTRAP STYLE-->
+<link href="plugins/bootstrap/bootstrap.min.css" rel="stylesheet" />
+<!--FONT AWESOME STYLE -->
+<link href="aplugins/font-awesome/font-awesome.min.css" rel="stylesheet" />
+<!--VEGAS SLIDESHOW STYLE -->
+<link href="plugins/vegas/jquery.vegas.min.css" rel="stylesheet" />
+<!--COUNTDOWN STYLE -->
+<link href="css/countdown.css" rel="stylesheet" />
+<!--CUSTOM STYLE -->
+<link href="css/style.css" rel="stylesheet" />
+<link rel="stylesheet" href="css/kim.css">
+<!--END REQUIRED STYLE SHEETS-->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+<link rel='stylesheet'
+	href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+<link rel='stylesheet'
+	href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,700'>
+<!-- 세림사용 -->
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<link href="css/sr.css" rel="stylesheet" />
+<!-- fotorama -->
+<link href="fotorama/fotorama.css" rel="stylesheet">
+<script src="fotorama/fotorama.js"></script>
+
+<!-- map -->
+<script type="text/javascript"
+	src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<!-- icon -->
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+
+<script type="text/javascript">
+		$(function () {
+		    var $fotoramaDiv = $('#fotorama').fotorama();
+		    var fotorama = $fotoramaDiv.data('fotorama');
+		  });
+		
+		
+	</script>
+
+<script type="text/javascript">
+	      function initialize() {
+	        var mapLocation = new google.maps.LatLng('37.51112', '127.0959783'); // 지도에서 가운데로 위치할 위도와 경도
+	        var markLocation = new google.maps.LatLng('37.51112', '127.0959783'); // 마커가 위치할 위도와 경도
+	         
+	        var mapOptions = {
+	          center: mapLocation, // 지도에서 가운데로 위치할 위도와 경도(변수)
+	          zoom: 16, // 지도 zoom단계
+	          mapTypeId: google.maps.MapTypeId.ROADMAP
+	        };
+	        var map = new google.maps.Map(document.getElementById("map-canvas"), // id: map-canvas, body에 있는 div태그의 id와 같아야 함
+	            mapOptions);
+	         
+	        var size_x = 60; // 마커로 사용할 이미지의 가로 크기
+	        var size_y = 60; // 마커로 사용할 이미지의 세로 크기
+	         
+	        // 마커로 사용할 이미지 주소
+	        var image = new google.maps.MarkerImage( 'http://www.larva.re.kr/home/img/boximage3.png',
+	                            new google.maps.Size(size_x, size_y),'','',new google.maps.Size(size_x, size_y));
+	         
+	        var marker = new google.maps.Marker({
+	               position: markLocation, // 마커가 위치할 위도와 경도(변수)
+	               map: map,
+	               icon: image, // 마커로 사용할 이미지(변수)
+	               title: '롯데월드' // 마커에 마우스 포인트를 갖다댔을 때 뜨는 타이틀
+	        });
+	         
+	        var content = "이곳은 서대전네거리역이다! <br/> 지하철 타러 가자~"; // 말풍선 안에 들어갈 내용
+	         
+	        // 마커를 클릭했을 때의 이벤트. 말풍선 뿅~
+	        var infowindow = new google.maps.InfoWindow({ content: content});
+	 
+	        google.maps.event.addListener(marker, "click", function() {
+	            infowindow.open(map,marker);
+	        });
+	      }
+	      google.maps.event.addDomListener(window, 'load', initialize);
+	</script>
+<!-- 세림 끝 -->
+
+
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("2019-07-30 18:00:00").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get todays date and time
+  var now = new Date().getTime();
+    
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+    
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  // Output the result in an element with id="demo"
+  document.getElementById("day-number").innerHTML = days;
+  document.getElementById("hour-number").innerHTML = hours;
+  document.getElementById("minute-number").innerHTML = minutes;
+  document.getElementById("second-number").innerHTML = seconds;
+    
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
+
+<script type="text/javascript">
+        window.onload=function(){         
+              var btnobj=document.getElementById("btnCreate").onclick=function(){
+                    var text=document.getElementById("intro").value;
+        
+                    var elep = document.createElement("p");
+                    elep.innerHTML=text;
+                    document.getElementById("ta-div").appendChild(elep);                    
+                    }                                        
+                }                             
+</script>
+
+</head>
+<body>
+	<!-- LEFT MENU SECTION -->
+	<section class="left-panel">
+		<nav class="navigatation">
+			<div class="menu-text">
+				<h3>
+					<i class="fa fa-plus-circle main-color"></i> PLUS
+				</h3>
+			</div>
+			<a href="#home-section">HOME</a> <a href="#zzang">Zzang</a> <a
+				href="#gomtokki">곰토끼</a> <a href="#mushishi">충사(蟲師)</a> <a
+				href="#serim">우세림</a> <a href="#godstar">별신</a>
+		</nav>
+		<!-- ./Navigation links-->
+		<div id="social-links" class="Icon-trigger">
+			<span class="fa fa-bars"></span>
+		</div>
+		<!-- ./Social links-->
+		<!-- ./Social links-->
+	</section>
+	<!--END LEFT MENU SECTION -->
+	<!-- MAIN CONTAINER -->
+	<div class="container">
+		<!-- HOME SECION -->
+		<section id="home-section">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<h1>
+						Team 1 <i class="fa fa-plus-circle main-color"></i> Until
+					</h1>
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<div class="divider"></div>
+						<h3 class="center">EASY TO GIVE UP</h3>
+						<!-- ./Headings -->
+						<div class="divider"></div>
+						<div id="counter"></div>
+						<div id="counter-default" class="row">
+							<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+								<div class="inner">
+									<div id="day-number" class="timer-number"></div>
+									<div class="timer-text">DAYS</div>
+									<div class="progress medium  active">
+										<div id="day-bar" class="progress-bar bk-blue"></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+								<div class="inner">
+									<div id="hour-number" class="timer-number"></div>
+									<div class="timer-text">HOURS</div>
+									<div class="progress medium  active">
+										<div id="hour-bar" class="progress-bar bk-green"></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+								<div class="inner">
+									<div id="minute-number" class="timer-number"></div>
+									<div class="timer-text">MINUTES</div>
+									<div class="progress medium  active">
+										<div id="minute-bar" class="progress-bar bk-pink"></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+								<div class="inner">
+									<div id="second-number" class="timer-number"></div>
+									<div class="timer-text">SECOND</div>
+
+									<div class="progress medium  active">
+										<div id="second-bar" class="progress-bar bk-red"></div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+						<!-- ./Counter -->
+
+
+					</div>
+				</div>
+			</div>
+			<!--./row-->
+		</section>
+		<!-- END HOME SECION -->
+		<!-- ABOUT SECION -->
+		<section id="zzang">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 abt-back-color">
+					<div class="divider-two"></div>
+					<h2 class="center">
+						Zzang <i class="fa fa-plus-circle"></i> 자기소개
+					</h2>
+					<div class="divider-two margin-botom-50"></div>
+					<!-- ./Headings -->
+
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<div class="alert alert-info">
+							<strong>자기소개서</strong>
+						</div>
+						<blockquote>
+							이름 : 김동민<br> 좋아하는 음식 : 참치김치찌개<br> 좋아하는 색깔 : 파란색<br>
+							사는 곳 : 인천<br>
+						</blockquote>
+						<div class="col-md-6">
+							<div class="divider-main"></div>
+							<h1>내가 좋아하는 음식들</h1>
+							<div class='parent'>
+								<div class='slider'>
+									<button type="button" id='right' class='right' name="button">
+
+										<svg version="1.1" id="Capa_1" width='40px' height='40px '
+											xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+											viewBox="0 0 477.175 477.175"
+											style="enable-background: new 0 0 477.175 477.175;"
+											xml:space="preserve">
+       <g>
+        <path style='fill: #9d9d9d;'
+												d="M360.731,229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1,0s-5.3,13.8,0,19.1l215.5,215.5l-215.5,215.5
+          c-5.3,5.3-5.3,13.8,0,19.1c2.6,2.6,6.1,4,9.5,4c3.4,0,6.9-1.3,9.5-4l225.1-225.1C365.931,242.875,365.931,234.275,360.731,229.075z
+          " />
+       </g>
+
+       </svg>
+
+									</button>
+									<button type="button" id='left' class='left' name="button">
+										<svg version="1.1" id="Capa_2"
+											xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+											viewBox="0 0 477.175 477.175"
+											style="enable-background: new 0 0 477.175 477.175;"
+											xml:space="preserve">
+       <g>
+        <path style='fill: #9d9d9d;'
+												d="M145.188,238.575l215.5-215.5c5.3-5.3,5.3-13.8,0-19.1s-13.8-5.3-19.1,0l-225.1,225.1c-5.3,5.3-5.3,13.8,0,19.1l225.1,225
+          c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4c5.3-5.3,5.3-13.8,0-19.1L145.188,238.575z" />
+       </g>
+       </svg>
+									</button>
+									<svg id='svg2' class='up2' xmlns="http://www.w3.org/2000/svg"
+										xmlns:xlink="http://www.w3.org/1999/xlink">
+      <circle id='circle1' class='circle1 steap' cx="34px" cy="49%"
+											r="20" />
+      <circle id='circle2' class='circle2 steap' cx="34px" cy="49%"
+											r="100" />
+      <circle id='circle3' class='circle3 steap' cx="34px" cy="49%"
+											r="180" />
+      <circle id='circle4' class='circle4 steap' cx="34px" cy="49%"
+											r="260" />
+      <circle id='circle5' class='circle5 steap' cx="34px" cy="49%"
+											r="340" />
+      <circle id='circle6' class='circle6 steap' cx="34px" cy="49%"
+											r="420" />
+      <circle id='circle7' class='circle7 steap' cx="34px" cy="49%"
+											r="500" />
+      <circle id='circle8' class='circle8 steap' cx="34px" cy="49%"
+											r="580" />
+      <circle id='circle9' class='circle9 steap' cx="34px" cy="49%"
+											r="660" />
+    </svg>
+									<svg id='svg1' class='up2' xmlns="http://www.w3.org/2000/svg"
+										xmlns:xlink="http://www.w3.org/1999/xlink">
+      <circle id='circle10' class='circle10 steap' cx="648px" cy="49%"
+											r="20" />
+      <circle id='circle11' class='circle11 steap' cx="648px" cy="49%"
+											r="100" />
+      <circle id='circle12' class='circle12 steap' cx="648px" cy="49%"
+											r="180" />
+      <circle id='circle13' class='circle13 steap' cx="648px" cy="49%"
+											r="260" />
+      <circle id='circle14' class='circle14 steap' cx="648px" cy="49%"
+											r="340" />
+      <circle id='circle15' class='circle15 steap' cx="648px" cy="49%"
+											r="420" />
+      <circle id='circle16' class='circle16 steap' cx="648px" cy="49%"
+											r="500" />
+      <circle id='circle17' class='circle17 steap' cx="648px" cy="49%"
+											r="580" />
+      <circle id='circle18' class='circle18 steap' cx="648px" cy="49%"
+											r="660" />
+    </svg>
+									<div id='slide1' class='slide1 up1'>참치김치찌개</div>
+									<div id='slide2' class='slide2'>삼겹살</div>
+									<div id='slide3' class='slide3'>초밥</div>
+									<div id='slide4' class='slide4'>봉골레파스타</div>
+								</div>
+							</div>
+							<script src="js/index.js"></script>
+						</div>
+
+						<div class="col-md-6">
+							<div class="divider-main"></div>
+							<h1>내가 좋아하는 영화</h1>
+							<div class="wrapper">
+								<!-- START -->
+								<div data-player data-player-id="extremejob">
+									<img class="thumb"
+										src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000081/81552/81552_1000.jpg"
+										alt="Extreme_job" />
+									<div class="video ytHide">
+										<div id="extremejob" data-id="xM1CIQd_X4c"></div>
+									</div>
+								</div>
+								<!-- YouTube :: Monsters University -->
+								<div data-player data-player-id="Masquerade">
+									<img class="thumb"
+										src="https://movie-phinf.pstatic.net/20121018_114/13505269047497LGt6_JPEG/movie_image.jpg"
+										alt="Masquerade" />
+									<div class="video ytHide">
+										<div id="Masquerade" data-id="1TnfM5XWOtI"></div>
+									</div>
+								</div>
+								<!-- END -->
+							</div>
+							<script
+								src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+							<script src='https://www.youtube.com/iframe_api'></script>
+
+
+
+							<script src="js/yotube.js"></script>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<!--./row-->
+
+		</section>
+
+		<!-- END ABOUT SECION -->
+		<!-- SERVICES SECION -->
+		<section id="gomtokki">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 srvc-back-color">
+					<div class="divider-two"></div>
+					<h2 class="center">
+						곰 <i class="fa fa-plus-circle"></i> 토끼
+					</h2>
+					<div class="divider-two margin-botom-50"></div>
+					<!-- ./Headings -->
+					<p
+						class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12 center">
+						신인류의 탄생<br> 지금까지 이런 캐릭터는 없었다.
+					</p>
+
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 center">
+						<h3>
+							<i class="fa fa-desktop fa-2x main-color"></i>
+						</h3>
+						<h3>Infomation</h3>
+						<p>Jung Il Chan</p>
+						<p>
+							Blood type : A <br>
+						<p>Birthday : Unknown</p>
+						<p>E-mail&nbsp;&nbsp;&emsp; ipos222@naver.com</p>
+						</p>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 center">
+						<h3>
+							<i class="fa fa-flask fa-2x main-color"></i>
+						</h3>
+						<h3>Computing skills</h3>
+						<p>Java, Python, SAS, R, C++</p>
+						<br>
+						<p>Oracle, Mysql, DB2, Tibero</p>
+						<br>
+						<p>HTML, CSS, Javascript</p>
+						<br>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 center">
+						<h3>
+							<i class="fas fa-briefcase fa-2x main-color"></i>
+						</h3>
+						<h3>Career</h3>
+						<p>SAS Software Korea</p>
+						<br>
+						<p>Fist Global</p>
+						<br>
+						<p>Yonhap Infomix</p>
+						<br>
+
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 center">
+						<h3>
+							<i class="fab fa-github fa-2x main-color"></i>
+						</h3>
+						<h3>Github</h3>
+						<p width="50px" height="100px">
+							<a href="http://github.com/rakjido" target="_blank">https://github.com/rakjido</a>
+						</p>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 center">
+						<!--<h3><i class="fa fa-clipboard fa-2x main-color"></i></h3>-->
+						<p>
+							<br>
+							<br>
+							<br>
+						</p>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 center">
+						<h3>
+							<i class="fa fa-paperclip fa-2x main-color"></i>
+						</h3>
+						<h3>Hobby</h3>
+						<p>
+							<a href="https://www.youtube.com/watch?v=3GXeLR_zYbs"
+								target="_blank"><i>"House dance is my life"</i></a>
+
+
+						</p>
+					</div>
+
+				</div>
+
+			</div>
+
+			<!--./row-->
+		</section>
+
+		<!--END SERVICES SECION -->
+		<!-- SUBSCRIBE SECION -->
+		        <section id="mushishi">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 sb-back-color">           
+                    <div class="divider-two"></div>
+                    <h2 class="center">충사 <i class="fa fa-plus-circle"></i> US NOW</h2>
+                    <div class="divider-two margin-botom-50"></div>
+                    <!-- ./Headings -->
+                    <p class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12 center">
+                        The work you do repeats you.<br>
+						Greatness comes not from one act but from habits.
+                    </p>
+                    
+                    <form action="" name="mainform">
+				
+					<table style="width: 500px">
+						<tr>
+							<th>INDEX</th>
+							<td>
+								<input type="text" name="zipcode" readonly>
+								<input type="button" value="SEARCH" 
+								       onclick="window.open('popup.html','zip','width=500,height=500')">
+							</td>
+						</tr>
+						<tr>
+							<th>소개</th>
+							<td>
+								<div class="form-group">
+							      <label for="comment">Comment:</label>
+							      <textarea class="form-control" name="intro" rows="5" id="intro"></textarea>
+							    </div>
+							</td>
+						</tr>
+						<tr>
+							<th>Create</th>
+							<td>
+								<input type="button" value="동적생성" id="btnCreate">							
+							</td>
+						</tr>
+					</table>
+					</form>
+                    
+                    <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12 center">
+                        <div id="ta-div"></div><br>
+                        <p><strong>Dwelling</strong>, hesitation, and powerlessness are always in place until 
+                        they are committed. For enterprising behavior There is one truth. 
+                        If you do not know this truth, countless ideas and endless plans are 
+                        banned. God is moving from the moment you make a clear commitment. 
+                        Never been a virgin Everything that would not have happened takes 
+                        place after devotion. After making the decision, I will return. All 
+                        kinds of invisible events, gatherings, material support, etc. Things 
+                        that never happened before will happen. You can do anything. Start. 
+                        talk If you move to run, genius, power, horsepower will come along. 
+                        <strong>-Goethe</strong></p>
+                    </div>
+                </div>
+            </div>
+            </section>
+		<!--./row-->
+		<section id="serim">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 abt-back-color">
+					<div class="divider-sr2"></div>
+					<h2 class="h2_sr">Se-Rim Woo</h2>
+					<div class="divider-sr2"></div>
+					<!-- ./Headings -->
+
+
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<div class="sr_Profile">
+							<h4 class="sr_favor">프로필</h4>
+							<div class="sr_img">
+								<div class="sr_img1">
+									<img src="img/me.jpg">
+								</div>
+								<div class="sr_img2">
+									<span>name&emsp;&emsp; 우세림 </span><br> <span>birth&nbsp;&emsp;&emsp;
+										1996.09.15 </span><br> <span>e-mail&nbsp;&nbsp;&emsp;<a
+										href="maito:rhak12@naver.com"> rhak12@naver.com</a>
+									</span><br> <span>git&nbsp;&emsp;&emsp;&emsp; <a
+										href="http://github.com/selim0915" target="_blank">https://github.com/selim0915</a></span><br>
+									<span>hobby&emsp;&emsp;유튜브, 기타, 보드게임</span> <br> <span>motto&emsp;&emsp;다같이
+										행복하게 살자 </span><br> <span>SNS&nbsp;&nbsp;&emsp;&emsp; <i
+										class="fab fa-facebook-square"></i> <i
+										class="fab fa-instagram"></i> <i class="fab fa-kickstarter"></i>
+										<i class="fab fa-youtube"></i>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<hr class="divider-sr">
+
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+							<h4 class="sr_favor">좋아하는 음식</h4>
+							<div class="fotorama" data-width="100%" data-height="185"
+								data-allowfullscreen="true" data-nav="thumbs">
+								<img src="img/김치찜.jpg"> <img src="img/굴.jpg"> <img
+									src="img/백순대.PNG"> <img src="img/버섯샤브.jpg"> <img
+									src="img/생선가스2.PNG"> <img src="img/소세지2.PNG"> <img
+									src="img/카레우동2.PNG">
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+							<h4 class="sr_favor">좋아하는 장소</h4>
+							<div id="map-canvas" style="width: 100%; height: 250px"></div>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+							<h4 class="sr_favor">좋아하는 노래</h4>
+							<object type="text/html" width="100%" height="250px"
+								data="//www.youtube.com/embed/efuVbrNLuAk?autoplay=1">
+							</object>
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+			<!--./row-->
+		</section>
+
+		<!--./row-->
+
+		<section id="godstar">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 srvc-back-color">
+					<div class="divider-two"></div>
+					<h2 class="center">신 지 혁</h2>
+					<div class="divider-two margin-botom-50"></div>
+					<!-- ./Headings -->
+					<center>
+						<h3>간단한 자기소개</h3>
+					</center>
+					<a href="#"> </a>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 center">
+						<h3>
+							<i class="fa fa-smile-o fa-2x main-color"></i>
+						</h3>
+						<h3>생년월일</h3>
+						<p>93.11.14</p>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 center">
+						<h3>
+							<i class="fa fa-desktop fa-2x main-color"></i>
+						</h3>
+						<h3>전공</h3>
+						<p>컴퓨터공학과</p>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 center">
+						<h3>
+							<i class="fab fa-github fa-2x main-color"></i>
+						</h3>
+						<h3>GitHub주소</h3>
+						<a href="http://GitHub.com/hddkkll" target="_blank">http://GitHub.com/hddkkll</a>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 center">
+						<h3>
+							<i class="fa fa-home fa-2x main-color"></i>
+						</h3>
+						<h3>사는지역</h3>
+						<p>경기도 수원시</p>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 center">
+						<h3>
+							<i class="fa fa-heart fa-2x main-color"></i>
+						</h3>
+						<h3>좋아하는것</h3>
+						<p>여행</p>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 center">
+						<h3>
+							<i class="fa fa-clipboard fa-2x main-color"></i>
+						</h3>
+						<h3>좌우명</h3>
+						<p>천천히라도 멈추지말고 꾸준히</p>
+					</div>
+
+				</div>
+
+			</div>
+
+			<!--./row-->
+		</section>
+
+		<!-- END SUBSCRIBE SECION -->
+		<!-- FOOTER SECION -->
+		<section id="footer">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"></div>
+			</div>
+			<!--./row-->
+		</section>
+		<!--END FOOTER SECION -->
+
+	</div>
+	<!-- END MAIN CONTAINER -->
+	<!--REQUIRED SCRIPTS FILES-->
+	<!--SCRIPTS AT END SO PAGE WILL TAKE LESS TIME TO LOAD-->
+	<!--REQUIRED CORE JQUERY SCRIPTS FILE-->
+	<script src="plugins/jquery.min.js"></script>
+	<!--REQUIRED BOOTSTRAP SCRIPTS FILE-->
+	<script src="plugins/bootstrap/bootstrap.js"></script>
+	<!--REQUIRED SCRIPT FILES FOR JQUERY COUNTDOWN-->
+	<script src="plugins/countdown/jquery.countdown.js"></script>
+	<script src="js/countdown.js"></script>
+	<!--REQUIRED SCRIPT FILE FOR VEGAS BACKGROUND SLIDESHOW-->
+	<script src="plugins/vegas/jquery.vegas.min.js"></script>
+	<!--REQUIRED SCRIPT FOR SCROLLING MENU LINKS-->
+	<script src="plugins/jquery.easing.1.3.js"></script>
+	<!--REQUIRED CUSTOM SCRIPT FILE-->
+	<script src="js/custom-slideshow.js"></script>
+	<!--END REQUIRED SCRIPTS FILES-->
+</body>
+
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 
+get 방식
+1. name속성이 반드시 필요
+Ex02_Register.jsp?userid=woo&pwd=1004&hobby=b&hobby=b
+
+2.id속성(ui, css, javascript, jQuery .. )에서 사용
+
+3. name="userid", id="userid"
+ -->
+<form action="Ex02_Register.jsp" method="post">
+	id <input type="text" name="userid"> <br>
+	pw <input type="text" name="pwd"> <br>
+	<input type="checkbox" name="hobby" value="baseball">baseball
+	<input type="checkbox" name="hobby" value="soccer">soccer
+	<input type="checkbox" name="hobby" value="basketball">basketball <br>
+	<input type="submit" value="ok">
+</form>
+
+</body>
+</html>

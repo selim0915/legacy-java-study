@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+		javascript 내장객체
+		Date(), Array()
+		객체 사용시 new 연산자를 통해서 객체를 만들고 사용
+		var d = new Date();
+	*/
+	var today = new Date();
+	document.write(today.getFullYear() + "년<br>");
+	document.write(today.getMonth() + "월<br>");
+	document.write(today.getDate() + "일<br>");
+	
+	document.write(today.getHours() + "시<br>");
+	document.write(today.getMinutes() + "분<br>");
+	document.write(today.getSeconds() + "초<br>");
+	
+	// Math
+	// https://www.w3schools.com/js/js_math.asp
+	document.write(Math.random()+"<br>"); //0~1
+	document.write(parseInt(Math.random()*45)+1+"<br>");
+	
+	document.write(Math.round(3.789)+ "<br>");
+	document.write(Math.max(3,8,45,67,1)+ "<br>");
+	
+	//문자열 관련 함수(POINT)
+	var str = "ABCDEF";
+	with(document){ //화면에 출력 : document.write()
+		write(str+ "<br>");
+		write(str.length + "<br>");
+		write(str.charAt(2) + "<br>");
+		write(str.indexOf("D")+"<br>");
+		write(str.concat(" ", "!", "  ", "홍길동")); //띄어쓰기 한번밖에 안되네
+		
+		var str2 = str.replace("E", "ZZZZZ");
+		write(str2+"<br>");
+		write(str.substring(2, 4)+"<br>");
+		write(str.substring(1, 2)+"<br>");
+		
+		var strarr = "A B C D";
+		var arr = strarr.split(" ");
+		//arr는  Array 배열 타입
+		console.log(typeof(arr)); //object = Arrat 객체라는뜻
+		
+		//point
+		//java : for(String a : arr)
+		//c# : for(String a in arr)
+		//javascript for(var s in arr){}
+		
+		for(var index in arr){
+			//write(index + "<br>");
+			write(arr[index] + "<br>");
+		} //keypoint*** 자바스크립트에선 배열값을 index로 반환한다.
+		
+	}
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

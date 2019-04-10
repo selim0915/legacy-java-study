@@ -1,0 +1,55 @@
+.h2_sr {
+	text-align: center;
+	margin: 2px auto;
+}
+
+h4.sr_favor {
+	text-align: center;
+	margin: 20px 0px 20px 0px;
+	padding: 0;
+	font-weight: 300;
+	font-size: 17px;
+}
+
+.sr_Profile {
+	margin: 25px auto 0 auto;
+	width: 100%;
+	height: 270px;
+}
+
+.sr_img {
+	margin:0 auto;
+}
+
+.sr_img1 img {
+	float: left;
+	width: 150px;
+	height: 190px;
+	margin-left: 300px;
+	margin-right: 50px;
+}
+
+.sr_img2 {
+	float: left;
+	margin-left: 0px;
+}
+
+.sr_img2 span{
+	display:inline-block;
+	margin-bottom: 5px;
+	font-size: 15px;
+}
+
+.divider-sr {
+	width: 600px;
+	height: 3px;
+	background: #FFFFFF;
+	margin: 0 auto 0 auto;
+}
+
+.divider-sr2 {
+	width: 200px;
+	height: 3px;
+	background: #FFFFFF;
+	margin: 0px auto 0 auto;
+}

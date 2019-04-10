@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript 유효성 검증</title>
+<script type="text/javascript">
+	/* 
+	유효성 검증
+	입력 -> 입력한 데이터 서버 전송 -> 서버 검증 -> 클라이언트에게 전달(응답) -> 처리 	..(별로 좋지 않은 방법)
+	>>라운트 트립(네트워크 트래픽) : 숫자, 문자 입력하는걸 서버가 체크하게 됨
+	>>서버의 부담을 줄이고, 서버가 하는 역할 (중복확인 정도)
+	>>서버에서 검증할 필요가 없는 데이터는 클라이언트 브라우저에서 처리하자 -> 검증완료되면 서버로 보내자
+	*/
+	
+	function send(){
+		//1. txtuserid input입력값을 가지고 와서 검증
+		//var txtuserid = document.forms[0].elements[0];
+		//txtuserid.value
+		//위 코드처럼 하지 않을 려면
+		//form name속성이 있고, input name속성이 있으면 아래처럼 하자
+		var userid = document.loginform.txtuserid;
+		console.log(userid);
+		console.log(userid.value);
+		
+		var userpwd = document.loginform.txtpwd;
+		console.log(userpwd);
+		console.log(userpwd.value);
+		
+		//검증 시작..!
+		if(userid.value =="" || !(userid.value.length>=3 && userid.value.length <=10)){
+			alert("다시 입력하세요");
+			document.loginform.txtuserid.focus();
+			//userid.focus();
+			userid.select(); //기본에 있는 텍스트 드레그 쳐서 나옴
+		}else{
+			alert("검증완료");
+			
+			//여기에 전송하는 코드를 만들어 줘야한다.
+			document.loginform.action="Ex09_login.jsp";
+			document.loginform.submit(); //서버로 전송 
+		}
+	}
+</script>
+</head>
+<body>
+	<form method="get" name="loginform">
+		id: <input type="text" name="txtuserid"> <br>
+		pw: <input type="password" name="txtpwd">
+		<input type="button" value="ok" onclick="send()">
+		<!-- <input type="submit" value="ok">
+		<input type="image"> 
+		목적지 전송 태그
+		-->
+		
+	</form>
+</body>
+</html>

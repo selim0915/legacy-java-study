@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/* 
+	JavaScript can change all the HTML elements in the page
+	JavaScript can change all the HTML attributes in the page
+	JavaScript can change all the CSS styles in the page
+	JavaScript can remove existing HTML elements and attributes
+	JavaScript can add new HTML elements and attributes
+	JavaScript can react to all existing HTML events in the page
+	JavaScript can create new HTML events in the page
+	*/
+</script>
+</head>
+<body>
+	<div id ="demo"></div>
+	<div id ="demo">
+		두번째요소 (계층트리에사 찻번째 element id=demo인 아이디를 찾으면 빠져나가)
+		두번쨰 부턴 의미없다.. >>같은 아이디가 여러개인건 의미없다.
+	</div>
+</body>
+<script type="text/javascript">
+	var element_div = document.getElementById("demo");
+	console.log(element_div);
+	element_div.innerHTML = "<b>Hello World</b>"
+</script>
+</html>
