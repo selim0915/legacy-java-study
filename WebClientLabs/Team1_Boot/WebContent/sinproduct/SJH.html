@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Ji Hyeok Shin</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+<link rel='stylesheet'
+	href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css'>
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700"
+	rel="stylesheet">
+<link href="csssin/common.css" rel="stylesheet" />
+<style>
+#map {
+	height: 300px;
+	weight: 300px;
+	margin: 100;
+	padding: 100
+}
+/* Optional: Makes the sample page fill the window. */
+.fakeimg {
+	height: 200px;
+	background: #aaa;
+}
+
+* {
+	box-sizing: border-box
+}
+
+/* Style the tab */
+.tab {
+	float: left;
+	border: 1px solid #ccc;
+	background-color: #f1f1f1;
+	width: 30%;
+	height: 300px;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+	display: block;
+	background-color: inherit;
+	color: black;
+	padding: 22px 16px;
+	width: 100%;
+	border: none;
+	outline: none;
+	text-align: left;
+	cursor: pointer;
+	transition: 0.3s;
+	font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+	background-color: green;
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+	background-color: gold;
+}
+
+/* Style the tab content */
+.tabcontent {
+	float: left;
+	padding: 0px 12px;
+	border: 1px solid #ccc;
+	width: 70%;
+	border-left: none;
+	height: 300px;
+}
+
+hr {
+	border: 0;
+	height: 3px;
+	background: #ccc;
+}
+
+#top {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	background: rgb(0, 0, 0);
+	background: rgba(0, 0, 0, 0.7);
+	width: 50px;
+	height: 50px;
+	display: block;
+	text-decoration: none;
+	-webkit-border-radius: 35px;
+	-moz-border-radius: 35px;
+	border-radius: 35px;
+	display: none;
+	-webkit-transition: all 0.3s linear;
+	-moz-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+#top i {
+	color: #fff;
+	margin: 0;
+	position: relative;
+	left: 12px;
+	top: 12px;
+	font-size: 25px;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+#top:hover {
+	background: rgba(0, 0, 0, 0.9);
+}
+
+#top:hover i {
+	color: #fff;
+	top: 5px;
+}
+</style>
+
+<script type="text/javascript">
+	var ck = 0;
+	function vis(num) {
+		document.getElementById("MainScript" + num).style.display = "block";
+		if (num == 1) {
+			document.getElementById("MainScript2").style.display = "none";
+			document.getElementById("MainScript3").style.display = "none";
+		}
+
+		if (num == 2) {
+			document.getElementById("MainScript1").style.display = "none";
+			document.getElementById("MainScript3").style.display = "none";
+		}
+
+		if (num == 3) {
+			document.getElementById("MainScript1").style.display = "none";
+			document.getElementById("MainScript2").style.display = "none";
+		}
+	}
+
+	function btn() {
+		if (ck == 0) {
+			document.getElementById("back").style.background = "#0080FF";
+			ck = 1;
+		} else {
+			document.getElementById("back").style.background = "#f1f1f1";
+			ck = 0;
+		}
+	}
+
+	$(document).ready(function() {
+		$('[data-toggle="tooltip"]').tooltip();
+	});
+</script>
+</head>
+<body>
+	<a href="javascript:" id="top"><i class="fas fa-arrow-circle-up"></i></a>
+	<div class="scroll">
+		<!-- Header -->
+		<div class="header">
+			<img src="imgsin/top.png" width="180" height="180">
+			<h1>Team 1 Until 2029</h1>
+		</div>
+
+		<!-- Menu -->
+		<div class="topnav1">
+			<a href="/team1_bs/wooproduct/serimHome.html" data-toggle="tooltip"
+				data-placement="top" title="우세림">우세림</a> <a
+				href="/team1_bs/sinproduct/SJH.html" data-toggle="tooltip"
+				data-placement="top" title="신지혁">별신</a> <a
+				href="/team1_bs/leeproduct/index_intro.html" data-toggle="tooltip"
+				data-placement="top" title="이교선">충사(蟲師)</a> <a
+				href="/team1_bs/jeonproduct/Gomtokki.html" data-toggle="tooltip"
+				data-placement="top" title="정일찬">곰토끼</a> <a
+				href="/team1_bs/kimproduct/zzangmain.html" data-toggle="tooltip"
+				data-placement="top" title="김동민">Zzang</a> <a
+				href="/team1_bs/index.html" data-toggle="tooltip"
+				data-placement="top" title="Home">Home</a>
+		</div>
+
+
+		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+			<a class="navbar-brand" href="SJH.html">모두보기</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#collapsibleNavbar">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="collapsibleNavbar">
+				<ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link" onclick="vis(1)">간단한소개</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" onclick="vis(2)">좋아하는음식</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" onclick="vis(3)">사는곳</a>
+					</li>
+					<li class="nav-item"><a class="nav-link"
+						href="http://www.GitHub.com/hddkkll" target="_blank">GitHub</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="container" id="MainScript1" style="margin-top: 30px"
+			float="left">
+			<hr>
+			<div class="row">
+				<div class="col-sm-4">
+
+					<br> <br> <br>
+					<center>
+						<img src="imgsin/1.png" wight="200px" height="200px">
+					</center>
+					<center>
+						<p>
+							<b>좌우명 : 천천히라도 멈추지말고 꾸준히</b>
+						</p>
+					</center>
+					<br> <br> <br>
+
+				</div>
+				<div class="col-sm-8" id="back">
+					<h5></h5>
+					<h2>Profile..</h2>
+					<ul>
+						<li>이름 : 신지혁</li>
+						<br>
+						<li>나이 : 27세 (93/11/14)</li>
+						<br>
+						<li>학과 : 전공자(컴퓨터공학과)</li>
+						<br>
+						<li>취미 : 게임(롤, 배그, 보드게임)</li>
+						<br>
+						<li><input type="button" value="좋아하는색보기" onclick="btn()" />
+							<div id="color"></div></li>
+						<br>
+						<li>좋아하는것 : <a href="#" style="color: red"
+							onclick="window.open('abc.html','zip','width=500,height=450')">여행다니기</a></li>
+					</ul>
+					<br> <br> <br>
+				</div>
+			</div>
+			<hr>
+		</div>
+
+
+		<div class="container" id="MainScript2" style="margin-top: 30px">
+			<div class="row">
+				<div class="col-sm-8">
+					<h2>
+						<b>좋아하는 음식</b>
+					</h2>
+
+					<div class="tab">
+						<button class="tablinks" onclick="openCity(event, 'meat')"
+							id="defaultOpen">삼겹살</button>
+						<button class="tablinks" onclick="openCity(event, 'fry')">돈까스</button>
+						<button class="tablinks" onclick="openCity(event, 'crab')">대게</button>
+					</div>
+
+					<div id="meat" class="tabcontent">
+						<h3>삼겹살</h3>
+						<p>육식 좋아함</p>
+						<img src="imgsin/11.jpg" width="200px" height="200px">
+					</div>
+
+					<div id="fry" class="tabcontent">
+						<h3>돈까스</h3>
+						<p>튀김류 좋아함</p>
+						<img src="imgsin/14.png" width="200px" height="200px">
+					</div>
+
+					<div id="crab" class="tabcontent">
+						<h3>대게</h3>
+						<p>갑각류 좋아함</p>
+						<img src="imgsin/12.jpg" width="200px" height="200px"> <img
+							src="imgsin/13.jpg" width="200px" height="200px">
+					</div>
+
+					<script>
+						function openCity(evt, cityName) {
+							var i, tabcontent, tablinks;
+							tabcontent = document
+									.getElementsByClassName("tabcontent");
+							for (i = 0; i < tabcontent.length; i++) {
+								tabcontent[i].style.display = "none";
+							}
+							tablinks = document
+									.getElementsByClassName("tablinks");
+							for (i = 0; i < tablinks.length; i++) {
+								tablinks[i].className = tablinks[i].className
+										.replace(" active", "");
+							}
+							document.getElementById(cityName).style.display = "block";
+							evt.currentTarget.className += " active";
+						}
+
+						// Get the element with id="defaultOpen" and click on it
+						document.getElementById("defaultOpen").click();
+					</script>
+				</div>
+			</div>
+			<br> <br> <br>
+			<hr>
+		</div>
+
+
+
+
+		<div class="container" id="MainScript3" style="margin-top: 30px">
+			<div class="row">
+				<div class="col-sm-8">
+					<h2>사는곳</h2>
+					<h5>경기도 수원시</h5>
+					<div id="map"></div>
+					<script>
+						function initMap() {
+							var myLatLng = {
+								lat : 37.238860933911084,
+								lng : 127.02470347260771
+							};
+
+							var map = new google.maps.Map(document
+									.getElementById('map'), {
+								zoom : 14,
+								center : myLatLng
+							});
+
+							var marker = new google.maps.Marker({
+								position : myLatLng,
+								map : map,
+								title : 'Hello World!'
+							});
+						}
+					</script>
+					<script async defer
+						src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDp4lvbjGKpgsp6DVKLep3XgGihcHZWQrg&callback=initMap">
+						
+					</script>
+					<br> <br> <br> <br> <br>
+				</div>
+			</div>
+			<hr>
+		</div>
+	</div>
+
+	<script src="js/topscroll.js"></script>
+
+	<!-- footer -->
+	<footer class="footer">
+		<div class="footer-left col-md-4 col-sm-6">
+			<div>
+				<a href="https://github.com/ubd2000/Team1.git"><i
+					class="fab fa-github"></i></a>
+				<p>
+					<span> Team 1</span> Git-hub Address
+				</p>
+			</div>
+			<div>
+				<a href="https://trello.com/b/mMNareyk/schedule"><i
+					class="fab fa-trello"></i></a>
+				<p>
+					<span> Team 1</span> Trello Address
+				</p>
+			</div>
+			<div>
+				<a href="love_alcls@naver.com"><i class="fa fa-envelope"></i></a>
+				<p>
+					<span> Captain</span> love_alcls@naver.com
+				</p>
+			</div>
+		</div>
+		<div class="footer-center col-md-4 col-sm-6">
+			<div>
+				<a href="love_alcls@naver.com"><i class="fa fa-envelope"></i></a>
+				<p>
+					<span> Chan Jeong Il</span> kurye.kim@gmail.com
+				</p>
+			</div>
+			<div>
+				<a href="love_alcls@naver.com"><i class="fa fa-envelope"></i></a>
+				<p>
+					<span> gyo Seon Lee</span> toyer703@gmail.com
+				</p>
+			</div>
+			<div>
+				<a href="love_alcls@naver.com"><i class="fa fa-envelope"></i></a>
+				<p>
+					<span> Ji Hyeok Shin</span> hddkkll@gmail.com
+				</p>
+			</div>
+			<div>
+				<a href="love_alcls@naver.com"><i class="fa fa-envelope"></i></a>
+				<p>
+					<span> Se Rim Oo</span> selim0915@gmail.com
+				</p>
+			</div>
+		</div>
+		<div class="footer-right col-md-4 col-sm-6">
+			<h2>
+				Bit<span> Team1</span>
+			</h2>
+			<p class="menu">
+				<a href="/team1_bs/index.html"> Home</a> | <a
+					href="/team1_bs/kimproduct/zzangmain.html"> Zzang</a> | <a
+					href="/team1_bs/jeonproduct/Gomtokki.html"> 곰토끼</a> | <a
+					href="/team1_bs/leeproduct/index_intro.html"> 충사(蟲師)</a> | <a
+					href="/team1_bs/sinproduct/SJH.html"> 별신</a> | <a
+					href="/team1_bs/wooproduct/serimHome.html"> 우세림</a>
+			</p>
+		</div>
+	</footer>
+</body>
+</html>

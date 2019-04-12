@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>gyo Seon Lee</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- <link href="https://fonts.googleapis.com/css?family=Pacifico|Permanent+Marker" rel="stylesheet">
+Specify in CSS -->
+<!-- 구글폰트 추가 -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+<link rel='stylesheet'
+	href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css'>
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+<!-- <link rel="stylesheet" href="css/style.css"> -->
+
+
+
+<link href="css/lee.css" rel="stylesheet" />
+<!-- css 폴더에 lee.css 추가함 -->
+<link href="css/common.css" rel="stylesheet" />
+
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700"
+	rel="stylesheet">
+
+<!-- map start -->
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<meta charset="utf-8">
+<style>
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+<!--
+#map 추가함 -->#map {
+	width: 300px;
+	height: 300px;
+}
+}
+</style>
+<!-- map end -->
+
+
+<style>
+.center {
+	text-align: center;
+}
+
+#top {
+	z-index: 2;
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	background: #f1f1f1;
+	background: #f1f1f1;
+	width: 50px;
+	height: 50px;
+	display: block;
+	text-decoration: none;
+	-webkit-border-radius: 35px;
+	-moz-border-radius: 35px;
+	border-radius: 35px;
+	display: none;
+	-webkit-transition: all 0.3s linear;
+	-moz-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+#top i {
+	color: #000000;
+	margin: 0;
+	position: relative;
+	left: 12px;
+	top: 12px;
+	font-size: 25px;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+#top:hover {
+	background: #f1f1f1;
+}
+
+#top:hover i {
+	color: #000000;
+	top: 5px;
+}
+</style>
+<!-- script 추가함 -->
+<script>
+	$(document).ready(function(){
+	  $('[data-toggle="tooltip"]').tooltip();   
+	});
+	</script>
+
+<script type="text/javascript">
+		window.onload=function(){
+			var myphotos=Array("img/mushishi1.jpg",		
+					 		   "img/mushishi2.jpg",	
+							   "img/mushishi3.jpg",	
+							   "img/mushishi4.jpg",	
+							   "img/mushishi5.jpg",	
+							   "img/mushishi6.jpg",	
+							   "img/mushishi7.jpg",	
+							   "img/mushishi8.jpg",	
+							   "img/mushishi9.jpg",	
+							   "img/mushishi10.jpg",	
+								);
+			var index=0;
+			console.log("index: "+index);
+			document.getElementById("prv").onclick=function(){
+				if(index==0){
+					index=myphotos.length;
+				}
+				console.log("before: "+index);
+				document.getElementById("imgs").src=myphotos[--index];
+			}
+			
+			//id next onclick 이벤트...
+			document.getElementById("next").onclick=function(){
+				if(++index==myphotos.length){
+					index=0;
+				}
+				console.log("after: "+index);
+				document.getElementById("imgs").src=myphotos[index];
+			}
+					
+		}
+	</script>
+<script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
+</head>
+<body>
+	<a href="javascript:" id="top"><i class="fas fa-arrow-circle-up"></i></a>
+	<div class="scroll">
+
+		<!-- Header -->
+		<div class="header">
+			<img src="img/top.png" width="180" height="180">
+			<h1>Team 1 Until 2029</h1>
+		</div>
+
+		<!-- Menu -->
+		<div class="topnav">
+			<a href="/team1_bs/wooproduct/serimHome.html" data-toggle="tooltip"
+				data-placement="top" title="우세림">우세림</a> <a
+				href="/team1_bs/sinproduct/SJH.html" data-toggle="tooltip"
+				data-placement="top" title="신지혁">별신</a> <a
+				href="/team1_bs/leeproduct/index_intro.html" data-toggle="tooltip"
+				data-placement="top" title="이교선">충사(蟲師)</a> <a
+				href="/team1_bs/jeonproduct/Gomtokki.html" data-toggle="tooltip"
+				data-placement="top" title="정일찬">곰토끼</a> <a
+				href="/team1_bs/kimproduct/zzangmain.html" data-toggle="tooltip"
+				data-placement="top" title="김동민">Zzang</a> <a
+				href="/team1_bs/index.html" data-toggle="tooltip"
+				data-placement="top" title="Home">Home</a>
+		</div>
+
+		<!-- wrapper 추가함 -->
+		<div class="wrapper">
+			<div class="main-one">
+				<hr>
+				<a href="#">ANIMATION</a>
+				<hr>
+				<img src="img/mushishi1.jpg" id="imgs" alt="이미지">
+				<hr>
+				<a href="#" id="prv">PREV</a>||<a href="#" id="next">NEXT</a>
+				<hr>
+			</div>
+
+			<div class="main-two">
+				<div class="profile-header">
+					<div class="name">
+						I'm a
+						<div class="name-job">
+							<ul class="name-job-list">
+								<li>Designer</li>
+								<li>Developer</li>
+								<li>Programmer</li>
+								<li>Architect</li>
+								<li>Designer</li>
+							</ul>
+						</div>
+						<h1 class="name-title">Lee Gyo Seon</h1>
+					</div>
+					<br>
+					<p>I did things related to architecture. I was interested in
+						real estate, and I was interested in architecture. So I have been
+						doing architectural design. I was often overworked and overworked
+						and could not get satisfaction from work. In the meantime, I was
+						studying about the real estate that I was squinting about and I
+						began to write books.</p>
+					<br>
+
+					<p>I decided to do beauty. I overcame the physically difficult
+						part by exercising. You I did not know it was difficult. I was
+						able to hold on to my strength and I have done so far. I was
+						taught by three famous leaders, but I knew I could not overtake
+						them. I want to be a franchise businesswoman. I do not want to be
+						the head craftsman, I want to play a supporting role.</p>
+					<br>
+
+					<p>I came to bit camp. At first I thought it was ridiculous.
+						How i am It's here! It is not a dream. Reality has brought me
+						here. Unrefined If you can not try hard enough ... I will learn
+						more and challenge you!</p>
+					<br>
+					<div class="icons">
+						<a class="twitter" href="https://twitter.com/?lang=ko">Twitter</a>
+						<a class="facebook" href="https://www.facebook.com/">Facebook</a>
+						<a class="pinterest" href="https://www.pinterest.co.kr/">Pinterest</a>
+					</div>
+				</div>
+
+				<div class="profile-section">
+					<h2>Work Experience</h2>
+					<ul class="timeline">
+						<li>
+							<h3>2004</h3>
+							<p>건축과 관련된 일들을 하였습니다. 부동산에 관심이 많았고, 건축물에도 관심이 많았습니다. 그래서
+								건축설계를 쭉 하였습니다. 잦은 야근과 과도한 업무에 시달리며 일에서 만족을 얻지 못하였습니다. 그러던 중 곁눈질
+								하던 부동산 관련 공부를 하였고 책도 쓰게 되었습니다.</p>
+						</li>
+						<li>
+							<h3>2014</h3>
+							<p>미용을 하기로 했습니다. 육체적으로 힘든 부분을 운동을 하며 이겨냈습니다. 몸짱이 되었고, 힘든줄
+								몰랐습니다. 체력이 되니 버틸 수 있었고 지금까지 하게 되었습니다. 3명 정도의 유명한 원장님의 가르침을 받았지만
+								그 분들을 뛰어넘지 못함을 알고 있었습니다. 나는 프랜차이즈 사업가가 되기를 원합니다. 머리하는 장인이 되길 원하지
+								않고 그들을 서포트 하는 역할을 하려고 합니다.</p>
+						</li>
+						<li>
+							<h3>2019</h3>
+							<p>비트캠프에 들어왔습니다. 처음엔 말도 안되는 일이라 생각하기도 했습니다. 내가 어떻게 여기에 있는거지!
+								꿈은 아닙니다. 현실이 나를 여기로 몰고 온 것입니다. 후회하지 않은 만큼 열심히 해 보고 안되면... 좀 더
+								배우고 또 도전하겠습니다!</p>
+						</li>
+					</ul>
+				</div>
+				<div class="profile-section">
+					<h2>좋아하는 색상</h2>
+					<ul class="timeline">
+						<li>
+							<h3>색상</h3>
+						</li>
+						<ul class="facolor">
+							#0FCFFA:
+							<li><a></a></li> #FB3C79:
+							<li><a></a></li> #F0B905:
+							<li><a></a></li>
+						</ul>
+						<br>
+						<p>Dwelling, hesitation, and powerlessness are always in place
+							until they are committed. For enterprising behavior There is one
+							truth. If you do not know this truth, countless ideas and endless
+							plans are banned. God is moving from the moment you make a clear
+							commitment. Never been a virgin Everything that would not have
+							happened takes place after devotion. After making the decision, I
+							will return. All kinds of invisible events, gatherings, material
+							support, etc. Things that never happened before will happen. You
+							can do anything. Start. talk If you move to run, genius, power,
+							horsepower will come along. -Goethe</p>
+					</ul>
+				</div>
+				<div class="profile-section">
+					<h2>Geolocation</h2>
+					<ul class="timeline">
+						<li>
+							<h3>지금, 여기에 있습니다!</h3>
+						</li>
+						<div id="map"></div>
+						<p>As a musician I have pursued perfection throughout my life.
+							I tried to write perfectly, Every time a work was completed, it
+							was always a pity. So obvious to me, I think I have an obligation
+							to challenge. -19th century best opera composer, Verdi</p>
+					</ul>
+				</div>
+				<div class="profile-section">
+					<h2>Skill</h2>
+					<ul class="graph">
+						<li data-score="45%"><h3>java</h3></li>
+						<li data-score="35%"><h3>database</h3></li>
+						<li data-score="55%"><h3>html5+css3</h3></li>
+						<li data-score="45%"><h3>Grapic Design</h3></li>
+						<li data-score="35%"><h3>javascript</h3></li>
+						<br>
+						<p>
+							-Agile Methodology (Scrum, Kanban, etc.)<br> -Practice with
+							purposeful consciousness. (Rediscovery of 10,000 hours)<br>
+							-Do conscious exercises.<br> -I get confidence through
+							little success.<br> -Manage goals.<br> -I will do it.<br>
+							-A memorizing method using pictures.<br> -Practice typing.<br>
+							-We train to withdraw what we learned.<br> <br>
+							conclusion <br> A study can shorten the process of going to
+							a goal if it is clearly correct. We can ideally capture the goal
+							we want to learn, but we move forward to the final goal by acting
+							on each one and creating the outcome. In this process, goal
+							management is performed.
+						</p>
+					</ul>
+				</div>
+				<div class="profile-section">
+					<h2>contact</h2>
+					<dl class="list">
+						<dt>Cell.</dt>
+						<dd>01099908100</dd>
+						<dt>Email.</dt>
+						<dd>toyer703@naver.com</dd>
+						<dt>Web</dt>
+						<dd>Comming Soon...</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+		<script src="js/index.js"></script>
+
+	</div>
+	<script src="js/topscroll.js"></script>
+
+	<footer class="footer">
+		<div class="footer-info col-md-4 col-sm-6"></div>
+		<div class="footer-left col-md-4 col-sm-6">
+			<div>
+				<a href="https://github.com/ubd2000/Team1.git"><i
+					class="fab fa-github"></i></a>
+				<p>
+					<span> Team 1</span> Git-hub Address
+				</p>
+			</div>
+			<div>
+				<a href="https://trello.com/b/mMNareyk/schedule"><i
+					class="fab fa-trello"></i></a>
+				<p>
+					<span> Team 1</span> Trello Address
+				</p>
+			</div>
+			<div>
+				<a href="love_alcls@naver.com"><i class="fa fa-envelope"></i></a>
+				<p>
+					<span> Captain</span> love_alcls@naver.com
+				</p>
+			</div>
+		</div>
+		<div class="footer-center col-md-4 col-sm-6">
+			<div>
+				<a href="mailto:kurye.kim@gmail.com"><i class="fa fa-envelope"></i></a>
+				<p>
+					<span> Il Chan Jeong</span> kurye.kim@gmail.com
+				</p>
+			</div>
+			<div>
+				<a href="mailto:toyer703@gmail.com"><i class="fa fa-envelope"></i></a>
+				<p>
+					<span> gyo Seon Lee</span> toyer703@gmail.com
+				</p>
+			</div>
+			<div>
+				<a href="mailto:hddkkll@gmail.com"><i class="fa fa-envelope"></i></a>
+				<p>
+					<span> Ji Hyeok Shin</span> hddkkll@gmail.com
+				</p>
+			</div>
+			<div>
+				<a href="mailto:selim0915@gmail.com"><i class="fa fa-envelope"></i></a>
+				<p>
+					<span> Se Rim Oo</span> selim0915@gmail.com
+				</p>
+			</div>
+		</div>
+		<div class="footer-right col-md-4 col-sm-6">
+			<h2>
+				Bit<span> Team1</span>
+			</h2>
+			<p class="menu">
+				<a href="/team1_bs/index.html"> Home</a> | <a
+					href="/team1_bs/kimproduct/zzangmain.html"> Zzang</a> | <a
+					href="/team1_bs/jeonproduct/Gomtokki.html"> 곰토끼</a> | <a
+					href="/team1_bs/leeproduct/index_intro.html"> 충사(蟲師)</a> | <a
+					href="/team1_bs/sinproduct/SJH.html"> 별신</a> | <a
+					href="/team1_bs/wooproduct/serimHome.html"> 우세림</a>
+			</p>
+		</div>
+	</footer>
+
+</body>
+<!-- map script 추가함 -->
+<script>
+      var map, infoWindow;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 15
+        });
+        infoWindow = new google.maps.InfoWindow;
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Location found.');
+            infoWindow.open(map);
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+      }
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+      }
+    </script>
+<script async defer
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCl2Ol3aZj1BeaWTh0oFJGO3xvEqijRPBA&callback=initMap">
+    </script>
+</html>

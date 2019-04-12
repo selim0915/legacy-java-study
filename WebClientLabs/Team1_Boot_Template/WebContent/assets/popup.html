@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		function zipSearch(obj){
+			console.log(obj)
+			//
+			var zip=obj.substring(0, 4);
+			var intro=obj.substr(4);
+			//alert(zip+"/"+addr);
+			 
+			//부모창: Ex12_Script_Zipcode.html
+			//자식창: Ex12_Popup.html
+			
+			//자식이 부모창에 접근 하는 방법
+			//부모(opener 객체)>>window.openner>>부모창
+			//자식창 입장에서...
+			window.opener.mainform.zipcode.value=zip;
+			window.opener.mainform.intro.value=intro;
+			window.opener.intro2.value=intro;
+			window.close(); //self close() 창 닫기
+			//부모창의 document
+		}
+		
+		
+	</script>
+</head>
+<body>
+	<h3>DB연결 검색 화면 주소 출력(선택)</h3>
+	<form action="" name="zipform">
+		<input type="button" value="소개1: I did things related to architecture. I was interested in real estate, and I was interested in architecture. So I have been doing architectural design. I was often overworked and overworked and could not get satisfaction from work. In the meantime, I was studying about the real estate that I was squinting about and I began to write books." name="btn" onclick="zipSearch(this.value)"><br>
+		<input type="button" value="소개2: I decided to do beauty. I overcame the physically difficult part by exercising. You I did not know it was difficult. I was able to hold on to my strength and I have done so far. I was taught by three famous leaders, but I knew I could not overtake them. I want to be a franchise businesswoman. I do not want to be the head craftsman, I want to play a supporting role." name="btn" onclick="zipSearch(this.value)"><br>
+		<input type="button" value="소개3: I came to bit camp. At first I thought it was ridiculous. How i am It's here! It is not a dream. Reality has brought me here. Unrefined If you can not try hard enough ... I will learn more and challenge you!" name="btn" onclick="zipSearch(this.value)"><br>
+	</form>
+</body>
+</html>

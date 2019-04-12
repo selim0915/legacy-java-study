@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	/*
+	https://www.w3schools.com/jquery/jquery_events.asp
+	
+	Mouse Events	Keyboard Events		Form Events		Document/Window Events
+	---------------------------------------------------------------------------
+	click			keypress			submit			load
+	dblclick		keydown				change			resize
+	mouseenter		keyup				focus			scroll
+	mouseleave	 	blur				unload
+	*/
+	$(document).ready(function() {
+		$('#btncopy').click(function() {
+			$('#txtcopyuserid').val($('#txtuserid').val());
+		});
+		
+		//onChange > change
+		//주의사항: element 중 value값이 있는애들 input => val로 가져온다.
+		//value값이 없는 애들: p, div, option => text로 가져온다.
+		$('#select_hpbby').change(function() {
+			//var text = $(':selected').text(); //[body]안에 select 1개만 있다면, 알아서 찾아갈수 잇따
+			//선택된거의 값을 가져와서 값을 담는다.
+			var text = $('#select_hpbby option:selected').text();
+			$('#txtselect').val(text);
+		});
+		
+		//textpwd2 > keyup이 되었을 때 txtpwd에 입력한 값하고 비교해서 암호가 같으면 
+		//id가 ="message"인 div태그안에 '암호가 일치합니다' 문자열 출력,
+		//일치하지 않으면 '일치하지 않습니다' 출력.
+/* 		$('#txtpwd2').keyup(function(){
+			var pwd1 = $('#txtpwd').val()
+			var pwd2 = $('#txtpwd2').val()
+			if(pwd1 != null && pwd2 != null){
+				if(pwd1 == pwd2){
+					$('#message').text("암호가 일치합니다.");
+				} else{
+					$('#message').text("암호가 일치하지 않습니다.");
+				}
+			}
+		}); */
+		$('#txtpwd2').keyup(function(){
+			if($('#txtpwd').val() != $('#txtpwd2').val()){
+				$('#message').text("암호가 일치하지 않습니다.");
+			} else{
+				$('#message').text("암호가 일치합니다.");
+			}
+		});
+		
+		$('input').focus(function() {
+			$(this).css('background-color','gray');
+		});
+		
+		$('input').blur(function() {
+			$(this).css('background-color','white');
+		});
+		
+		//하나의 이벤트가 함수를 여러개를 가질 수 있다.
+		$('P').hover(function() {
+			//in
+			$(this).css('background-color','yellow');
+		}, function() {
+			//out
+			$(this).css('background-color','green');
+		})
+	});
+</script>
+</head>
+<body>
+	<p>Jquery event</p>
+	ID:
+	<input type="text" id="txtuserid">
+	<input type="button" id="btncopy" value="copy">
+	<br> Copy Id:
+	<input type="text" id="txtcopyuserid">
+	<hr>
+
+	<select id="select_hpbby">
+		<option value="JAVA">JAVA</option>
+		<option>script</option>
+		<option>jdbc</option>
+	</select>
+	<br>
+	<input type="text" id="txtselect">
+	<hr>
+
+	<table style="border: 1px solid red;">
+		<tr>
+			<td>암호</td>
+			<td><input type="text" id="txtpwd" size="20" maxlength="5"></td>
+		</tr>
+		<tr>
+			<td>암호 확인</td>
+			<td><input type="text" id="txtpwd2" size="20" maxlength="5"></td>
+		</tr>
+	</table>
+
+	<div id="message" style="color: red;"></div>
+
+</body>
+</html>

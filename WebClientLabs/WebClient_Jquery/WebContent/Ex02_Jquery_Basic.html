@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="script/jquery-3.4.0.min.js"></script>
+<script type="text/javascript">
+	//page에 모든 요소에 Dom형태로 loading되고 난 후에
+	//window.onload = function(){ }
+	/*
+	$(document).ready(function(){
+		$('h3').css("color", "red");
+	});
+	*/
+	
+	//#단축 표현식
+	//즉시 실행 함수
+	//body요소가 로딩되고 난 후에 함수 실행
+	$(function(){ //함수안에 함수.. 함수안에 익명함수
+		$('h3').css("color", "blue");
+	})
+</script>
+</head>
+<body>
+	<h3>script include</h3>
+</body>
+</html>

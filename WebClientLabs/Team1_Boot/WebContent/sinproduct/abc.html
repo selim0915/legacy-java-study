@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>사진리스트</title>
+	
+</head>
+<body>
+<center><img src="" id=ListImg alt="이미지 로딩중" style="width:400px; height:400px;"></center>
+	<script>
+var myImg=document.getElementById("ListImg");
+		var imgArray=["imgsin/1.png", "imgsin/2.png", "imgsin/3.png", "imgsin/4.png", "imgsin/6.png", "imgsin/7.png", "imgsin/8.png"];
+		var imageIndex=0;
+	function changeImage(){
+		
+		myImg.setAttribute("src", imgArray[imageIndex]);
+		imageIndex++;
+		 if(imageIndex>=imgArray.length){
+			imageIndex=0;
+		}
+	}
+	setInterval(changeImage,2000);
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	/* 
+		event attach(다중)
+		bind() <-> unbind() 2.x
+		on() <-> off() 3.x
+	*/
+	
+	//**KEY POINT !! JSON객체 형태로 이벤트를 만든다.
+	$(document).ready(function(){
+		/* 
+		여러개의 함수를 만드는데 지져분해보이네
+		$('p').click(function(jQuery.Event) {
+			
+		});
+		$('p').mousedown(function(jQuery.Event) {
+			
+		}); 
+		*/
+		$('p').on(
+			{
+				click:function(){$(this).css('background-color','red');},
+				mousedown:function(){$(this).css('background-color','green');},
+				mouseenter: function(){$(this).css('background-color','blue');}
+			});
+		$('button').click(function() {
+			$('p').off('click');
+		});
+		
+	});
+</script>
+</head>
+<body>
+	<p>on함수 사용해서 다중 이벤트 구현하기</p>
+	<hr>
+	<button>이벤트 제거</button>
+</body>
+</html>

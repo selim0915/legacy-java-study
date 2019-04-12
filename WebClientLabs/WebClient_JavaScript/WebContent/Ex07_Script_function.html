@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>함수(내장함수)</title>
+<script type="text/javascript">
+	var myTime = window.setInterval(function(){ //일회성 함수
+		//javascript 객체(Date객체)
+		//Date d = new Date() : JAVA
+		
+		var d = new Date(); //d는 Date객체의 주소값을 가지고 있다
+		var t = d.toLocaleTimeString();
+		
+		//DOM script
+		document.getElementById("time").innerHTML = t;
+		
+	}, 1000) //}, ms)  ms 초
+	
+	function myTimeStop(){
+		window.clearInterval(myTime);
+	}
+</script>
+</head>
+<body>
+	<p id="time">innerHTML! innerHTML! innerHTML!</p><br>
+	<button onclick="myTimeStop()">stop Time</button>
+	
+	
+</body>
+</html>
