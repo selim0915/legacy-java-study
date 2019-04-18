@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<style type="text/css">
+	table, tr, td {
+		border: 1px solid red;
+		border-collapse: collapse;
+	}
+</style>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	/* 
+	remove() - Removes the selected element (and its child elements)
+	empty() - Removes the child elements from the selected element
+	*/
+	$('#btncreate').click(function(){
+		var row = $('#row').val();
+		var col = $('#col').val();
+		
+		var strtable = "<table>";
+			for(var i=0; i<row; i++){
+				strtable += "<tr>";
+					for(var j=0; j<col; j++){
+						strtable += "<td>";
+							strtable += i+"행 "+j+"열 입니다.";
+						strtable += "</td>";
+					}
+				strtable += "</tr>";
+			}
+		
+		strtable += "</table>";
+		console.log(strtable);
+		
+		$('#divtable').append(strtable);
+	});
+	
+	$('#btndelete').click(function(){
+		$('#divtable').empty(); //선택 된 요소의 자식요소를 지운다.
+		//$('#divtable').remove(); //remove: 본인 까지 다 지움
+	});
+	
+	$('#btnmenu').click(function(){
+		//method chain기법 : 함수().함수().함수() ..
+		$('#menu').clone().appendTo("#content"); //.clone(): 복제
+		//.appendTo("#submenu"); append랑 똑같은데 타겟대상을 뒤에 부른다.
+	});
+});
+</script>
+</head>
+<body>
+	<!-- Ex22_DOM_Script.html 과 비교 -->
+	<span id="lbldisplay">Table create</span>
+	<input type="text" id="row">행
+	<input type="text" id="col">열
+	<input type="button" value="테이블 동적생성" id="btncreate">
+	<input type="button" value="테이블 동적제거" id="btndelete">
+	
+	<div id="divtable">
+	
+	</div>
+	<hr>
+	
+	<input type="button" id="btnmenu" value="변경">
+	<div id="menu">Home</div>
+	<div id="content">Content</div>
+	<div id="submenu">Submenu</div>
+</body>
+</html>

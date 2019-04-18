@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 뭐가 동기고 비동기인지 확실하게 구분해보자 
+	동기는 새페이지를 받아서 뿌려지고
+	비동기는 현재페이지에서 부분만 변경되는 업데이트
+-->
+<script type="text/javascript">
+/*
+	1. XMLHttpRequest 객체 얻기
+ 	2. onreadystatechange 이벤트 핸들러 구현
+ 	3. 요청 정보 ( open() )
+ 	4. 요청 보내기 (send() )
+ 	5. 응답할수있는 데이터형식으로 처리=> (Text(JSON, script, text, html), xml )
+*/
+	var httpReq = null;
+	
+	//function getInstance(){}
+	//function handlerStateChange(){}
+	//function sendData(){}
+	
+	function getInstance(){
+		if(window.XMLHttpRequest){
+			httpReq = new XMLHttpRequest();
+		 }else if(window.ActiveXObject){ //IE6
+			 httpReq = new ActiveXObject("Msxml12.XMLHTTP");
+		 }else{
+			 throw new Error("Ajax를 지원하지 않습니다.");
+		 }
+		return httpReq;
+	}
+	
+	function handlerStateChange(){
+		 if(httpReq.readyState ==4){
+			 if(httpReq.status >= 200 && httpReq.status < 300){
+				 document.getElementById("container").innerHTML = httpReq.responseText;
+			 }
+		 }
+	}
+	
+	function sendData(){
+		httpReq = getInstance(); //함수를 호출해서 주소값을 받고
+		httpReq.onreadystatechange = handlerStateChange;
+		//on 이벤트
+		//보통 onreadystatechange에 handlerStateChange를 담는다.
+		//***주의사항 : 이벤트가 함수를 담을 때(가질 땐) ()를 붙이지 않는다. 이름만 준다.
+		
+		httpReq.open("GET", "Ex01_Resource.html"); //form 구성
+		httpReq.send('');
+	}
+	
+	
+</script>
+</head>
+<body>
+	<h3>이미지</h3>
+	<img src="imgs/logo.png" style="width:150px; height:150px">
+	
+	<h3>비동기(ajax) 처리하기</h3>
+	<input type="button" value="비동기처리" onclick="sendData()">
+	<div id ="container"> First data Load...</div>
+	
+	<h3>동기식 데이터 처리</h3>
+	<a href="Ex01_Resource.html">서버에 데이터 요청</a>
+	
+</body>
+</html>

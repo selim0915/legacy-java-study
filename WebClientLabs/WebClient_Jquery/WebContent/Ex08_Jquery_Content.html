@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	/* 
+		https://www.w3schools.com/jquery/jquery_dom_set.asp
+		
+		3가지 함수가 파라미터를 가지면 setter (ex: text('aa') 값을 쓰는 거)
+									(ex: text() 값을 가져오는 거)
+	
+		text() - Sets or returns the text content of selected elements
+		html() - Sets or returns the content of selected elements (including HTML markup)
+		val() - Sets or returns the value of form fields
+		
+		div, p, span 은 val()속성이 없다.
+	*/
+	
+	$(function(){
+		$('#btn1').click(function(){
+			alert("text: "+ $('#test').text());
+		});
+		
+		$('#btn2').click(function(){
+			alert("html: "+ $('#test').html()); //안에있는 요소 정보도 가지고 온다.
+		});
+		
+		$('#btn3').click(function(){
+			//$('#test').text("<div>aaaa</div>"); //div가 텍스트 형태로..
+			$('#test').html("<div>aaaa</div>");
+		});
+		
+		$('#btn4').click(function(){
+			alert($('#test2').val())
+		});
+	});
+</script>
+</head>
+<body>
+	<p id="test">안녕하세요. <b>정말</b> 방가방가</p>
+	<button id="btn1">show text</button>
+	<button id="btn2">show html</button>
+	<button id="btn3">html</button>
+	<button id="btn4">input tag</button>
+	<input type="text" id="test2" value="helloworld">
+ </body>
+</html>

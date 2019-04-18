@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 뭐가 동기고 비동기인지 확실하게 구분해보자 
+	동기는 새페이지를 받아서 뿌려지고
+	비동기는 현재페이지에서 부분만 변경되는 업데이트
+-->
+<script type="text/javascript">
+/*
+	1. XMLHttpRequest 객체 얻기
+ 	2. onreadystatechange 이벤트 핸들러 구현
+ 	3. 요청 정보 ( open() )
+ 	4. 요청 보내기 (send() )
+ 	5. 응답할수있는 데이터형식으로 처리=> (Text(JSON, script, text, html), xml )
+*/
+	var httpReq = null;
+	
+	//function getInstance(){}
+	//function handlerStateChange(){}
+	//function sendData(){}
+	
+	function getInstance(){
+		if(window.XMLHttpRequest){
+			httpReq = new XMLHttpRequest();
+		 }else if(window.ActiveXObject){ //IE6
+			 httpReq = new ActiveXObject("Msxml12.XMLHTTP");
+		 }else{
+			 throw new Error("Ajax를 지원하지 않습니다.");
+		 }
+		return httpReq;
+	}
+	
+	function handlerStateChange(){
+		 if(httpReq.readyState ==4){
+			 if(httpReq.status >= 200 && httpReq.status < 300){
+				//서버에서 받은 데이터를 가공(하는것이 포인트)
+				//Text (html, text, script, json)
+				//xml (xml)
+				
+				var TempArray = new Array();
+				TempArray = httpReq.responseText.split(","); //AA,BB,CC
+				
+				//서버로 부터 받은 데이터를 가공하는 코드
+				var printdata ="";
+				for(var i=0; i<TempArray.length; i++){
+					printdata += TempArray[i].trim() + "<br>";
+				}
+				
+				var view = document.getElementById("div_view");
+				view.innerHTML = printdata;
+			 }
+		 }
+	}
+	
+	function sendData(){
+		httpReq = getInstance(); //함수를 호출해서 주소값을 받고
+		httpReq.onreadystatechange = handlerStateChange;
+		//on 이벤트
+		//보통 onreadystatechange에 handlerStateChange를 담는다.
+		//***주의사항 : 이벤트가 함수를 담을 때(가질 땐) ()를 붙이지 않는다. 이름만 준다.
+		
+		var key = document.getElementById("select_menu").selectedIndex;
+		//key라는 변수는 0, 1,2를 값을 가질수 있다.
+		
+		httpReq.open("GET", "Ex03_Server_param.jsp?no="+key); //form 구성
+		httpReq.send('');
+	}
+	
+	
+</script>
+</head>
+<body>
+	<h3>Ajax (xmlHttpRequest 객체사용)</h3> <!-- xmlHttpRequest이 객체사용하면 비동기다 생각하자 -->
+	<div style="background-color: gray; text-align: center; width: 500px;">
+		<hr style="color: red;">
+		<select id="select_menu" onchange="sendData()">
+			<option>0번 index</option>
+			<option>1번 index</option>
+			<option>2번 index</option>
+		</select><br>
+		<span id="div_view"></span>
+	</div>
+	
+</body>
+</html>

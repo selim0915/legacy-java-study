@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	/*
+	JAVA: for(String s : array or collection){}
+	javascript : for (var s in 배열(Array)) {}
+				for(var index in Array){ Array[index]}
+				for(var key in Object(json)){}
+	jQuery : 핵심(ajax 비동기 처리) 
+	
+	1. $(selector).each(function(){ this });
+	2. $(selector).each(function(index){ this });
+	3. $(selector).each(function(index, element){ element });
+	
+	*selector 없는 each
+	1. $.each(selector, function(){this});
+	2. $.each(selector, function(index){this});
+	3. $.each(selector, function(index, element){element});
+	
+	두가지 차이점은 무엇일까?
+	
+	*/
+	
+	$(function(){
+		//1. $.each(selector, function(){this});
+		//앞에 selector가 여러개 인거
+		$('p').each(function(){
+			//p모든 요소를 다 가져온다음에 각각의 요소를 함수로 빼내겟다
+			console.log("this: "+$(this).text());
+			//this는 p태그를 가르킨다.
+		});
+		
+		//2. $.each(selector, function(index){this});
+		$('p').each(function(index){ 
+			//p태그 개수 만큼 함수가 호출된다. //index=p갯수
+			console.log("index: "+index);
+			console.log("this: "+$(this).text());
+			//$(this).attr("id","param-"+index) :
+			//여러개의 속성을 한번에 : {}json
+			$(this).attr(
+						{
+							"id":"param-"+index,
+							"style":"color:red"
+						}
+			);
+		});
+		
+		//3. $.each(selector, function(index, element){element});
+		//두번째 파라미터가 select의 자원이다.
+		//제일 많이 사용한다.
+		$('p').each(function(index, element){
+			console.log("index: "+index);
+			console.log("sselement: "+element+" / "+$(element).text() ); //p태그를 통으로 받는다.
+		});
+		
+		//응용학습
+		//**javascript array
+		//var arr =['사과','배','수박']
+		
+		//JSON
+		//json object > var obj={}
+		
+		//객체배열
+		//var arrobj = [{},{},{}]
+		
+		var array = [
+					{"name":"naver", "link":"www.naver.com"},
+					{"name":"daum", "link":"www.daum.net"},
+					{"name":"bit", "link":"www.bit.com"}
+		]
+		
+		//문제
+		//name값, link값을 출력하세요
+		//selector의 대상으로는 element, obj, array 다 올수 있다.
+		//엘리먼트가 대상일땐 아래식을 자주 이용
+		$(array).each(function(index, obj){
+			console.log("index: "+index+" ,obj: "+obj);
+			console.log(obj.name +"/" +obj.link);
+			//console.log(array[index].name +"/" +array[index].link);
+		});
+		//console.log(array[0].name +"/" +array[0].link);
+		
+		//엘리먼트가 대상이 아닐때
+		//로직상 안에 있는 객체, 배열을 다룰 때 자주 이용
+		//$.each(selector, function(index, element){element});
+		$.each(array, function(index, obj){
+			console.log("index: "+index+" ,obj: "+obj);
+			console.log(obj.name +"/" +obj.link);
+		});
+		
+		/*
+		$(array).each(function(index, obj){
+			=> body안에 태그 정보 에 사용
+		}
+		$.each(selector, function(index, element){element});
+			=> script 내부 자원에 사용
+		*/
+		
+		var board = {
+					values:[
+							{no:1, title:'hello'},
+							{no:2, title:'world'},
+							{no:3, title:'korea'},
+							],
+					search:"검색"
+					}
+			
+		//Quiz $.each를 사용해서 no값과 title값을 출력하세요.
+		//console.log(board.values);
+		var board2 = board.values
+		$.each(board2, function(index, obj){
+			console.log(obj.no +" / "+obj.title);
+		});
+		
+		$.each(board.values, function(index, obj){
+			console.log(index + "/" + obj.no +", "+obj["title"])
+		});
+		
+		$.each(board, function(key, value){
+			console.log("속성명: "+key + "/" +"값: "+value);
+		});
+		
+		//$.each를 통해 no title search값을 출력하세요
+		$.each(board, function(key, value){
+			//console.log(typeof(value));
+			//value값이 일반값이냐 배열이냐 => String
+			if(typeof(value) === "object"){
+				//console.log("key: "+key);
+				$.each(value, function(index, obj){
+					console.log("index: "+index + "-" +obj.no + ":" + obj.title);
+				});
+			}else{
+				console.log("key: "+key+ ", value: "+value);
+			}
+		});
+		
+		
+			
+	});
+</script>
+</head>
+<body>
+	<p>java</p>
+	<p>jsp</p>
+	<p>oracle</p>
+	
+	<input type="button" value="click" id="btn">
+</body>
+</html>

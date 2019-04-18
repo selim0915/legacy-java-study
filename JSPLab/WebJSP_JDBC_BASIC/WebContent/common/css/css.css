@@ -1,36 +1,41 @@
-.header{
+html, body {
+	margin:0;
+	padding:0;
+	height:100%;
+	min-height:100%;
+}
+
+.sr_container{
 	width:100%;
-	height:200px;
-	background-color: #d9f3d6;
-	padding-top: 80px;
-	text-align: center;
+	min-height: 580px;
+	position: relative;
+	padding: 0px;
 }
 
-.topnav{
-	background-color: #a8e3a2;
-}
-
-.leftnav{
-	background-color: #e9f8e7;
-	height:100%; 
-	padding: 30px;
+.sr_nav{
+	background-color: #eeeeee;
 	font-size: 20px;
 }
 
-.container{
-	width:900px;
+.leftnav{
+	width:100%;
+	font-size: 20px;
 	padding: 30px;
-	margin-top:20px;
-	margin-bottom:100px;
-	background-color: white; 
 }
 
-.footer {
+.sr_contents{
+	width:100%;
+	padding: 25px;
+	margin:0px;
+}
+
+.sr_footer {
 	width:100%;
 	height:80px;
-	background-color: #b3b3b3; /* 연회색 */
+	background-color: #dddddd; /* 연회색 */
 	text-align: center;
-	color: white;
-	padding: 30px;
-	bottom:0px; 
+	position: absolute;
+	padding-top: 30px;
 }
+
+

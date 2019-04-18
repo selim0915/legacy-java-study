@@ -15,5 +15,5 @@
 	<h3>세림: 당신이 입력한 데이터는</h3>
 	ID : <%= userid  %> <br>
 	PW : <%= userpwd%> <br>
-</body>
+</body> 
 </html>

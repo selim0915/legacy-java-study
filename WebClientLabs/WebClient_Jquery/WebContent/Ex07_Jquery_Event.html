@@ -20,38 +20,38 @@
 	});
 	
 	$(function(){
-		$('td:contains("홍길동")').addClass('redcolor');
+//		$('td:contains("홍길동")').addClass('redcolor');
 		//기존에 존재하는 css의 이름을 추가하는 방식
 		
 		//find(): 필터함수 : 걸러내게 도와준다
 		$('td:contains("홍길동")').siblings().addClass('bluecolor') //.siblings()형제
-		.parent().find('td:eq(0)').addClass('greencolor'); //부모중 1번째
+//		.parent().find('td:eq(0)').addClass('greencolor'); //부모중 1번째
 		
 		//이벤트
 		//1. $('#btnclick').on(click, function() {});
 		//2. $('#btnclick').on({click:function()});
 		
-		$('#btnclick').on('click',function(){
-			alert('click');
-		});
+//		$('#btnclick').on('click',function(){
+//			alert('click');
+//		});
 		$('#btnclick').on('mouseover',function(){
 			document.getElementById('btnclick').style.backgroundColor='red';
 		});
-		$('#btnclick').on('click',function(){
-			document.getElementById('btnclick').style.backgroundColor='white';
-		});
+//		$('#btnclick').on('click',function(){
+//			document.getElementById('btnclick').style.backgroundColor='white';
+//		});
 		
 		//Quiz
 		//btnclick2라는 id를 가진 div를 클릭하면
 		//btnclick라는 id를 가진 div태그에 click이벤트를 off시키라
-		$('#btnclick2').click(function(){
-			$('#btnclick').off('click');
-		});
+//		$('#btnclick2').click(function(){
+//			$('#btnclick').off('click');
+//		});
 		
 		$('#stylediv').on(
 			{
-				mouseover: function(){ $('#stylediv')}.addClass('greencolor');
-				mouseout: function(){ 
+				mouseover: function(){ $('#stylediv').addClass('greencolor');},
+				mouseout: function(){
 					$('#stylediv').removeClass('greencolor'); 
 					$('#stylediv').addClass('bluecolor'); 
 				}
