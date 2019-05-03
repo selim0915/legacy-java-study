@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HTML_Audio</title>
+
+
+
+</head>
+
+<body>
+
+	<h2>HTML Audio Player_controls</h2>
+	<audio id="myAudio" src="audio/effect.mp3" controls="controls"> 
+	Your browser does not support the audio element.
+	</audio>
+	<br>
+	<button onclick="play()" type="button">재생</button>
+	<button onclick="pause()" type="button">일시정지</button>
+	<button onclick="enableMute()" type="button">음소거</button>
+	<button onclick="disableMute()" type="button">음소거해제</button>
+	<button onmouseover="play()" type="button">마우스를 올리면 자동재생</button>
+	<br>
+	<br>
+	
+	<h2>HTML Audio Player_controls_loop</h2>
+	<audio id="myAudio2" src="audio/effect.mp3" controls loop>
+	 Your browser does not support the audio element.
+	</audio>
+
+
+	<script>
+	var aud = document.getElementById("myAudio");
+
+		function play() {
+			aud.play();
+
+		}
+
+		function pause() {
+			aud.pause();
+		}
+
+		function enableMute() {
+			aud.muted = true;
+		}
+
+		function disableMute() {
+			aud.muted = false;
+		}
+
+		
+		
+	
+	</script>
+	<br>
+	
+</body>
+</html>

@@ -12,6 +12,7 @@
 	
 	오늘 배우는거 : 서버자원
 	서버자원(WAS가 제공하는 메모리=웹서버의 메모리쓴다)
+	--웹 애플리케이션 서버(Web Application Server)
 	
 	Application
 	- [전역객체]의 변수

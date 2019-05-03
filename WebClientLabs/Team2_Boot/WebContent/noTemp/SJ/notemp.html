@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <title>Document</title>
+    <style>
+      .bgColor {
+        background-color: whitesmoke;
+      }
+
+      .main {
+        overflow: hidden;
+        background-color: gray;
+      }
+      .main a {
+        color: white;
+        display: block;
+        float: left;
+        text-align: center;
+        text-decoration: none;
+        padding: 10px 40px;
+      }
+      .main a2 {
+        color: white;
+        display: block;
+        float: right;
+        text-align: center;
+        text-decoration: none;
+      }
+      .main a:hover {
+        background-color: LightGray;
+        color: black;
+      }
+      .main a:visited {
+        color: white;
+        background-color: transparent;
+        text-decoration: none;
+      }
+      .main a2:hover {
+        background-color: LightGray;
+        color: black;
+      }
+      .main a2:visited {
+        color: white;
+        background-color: transparent;
+        text-decoration: none;
+      }
+
+      .article {
+        padding: 15px, 15px, 15px, 15px;
+        margin-left: 50px;
+        float: left;
+      }
+
+      .sticky {
+        background-color: gray;
+        position: fixed;
+        bottom: 0;
+        right: 4;
+        width: 50px;
+        height: 50px;
+        border: 0px;
+        padding-left: 0px;
+      }
+
+      .footer {
+        overflow: hidden;
+        background-color: gray;
+        clear: both;
+        text-align: center;
+      }
+
+      article > div {
+        align: "center";
+      }
+
+      .carousel-inner img {
+        width: 100%;
+        height: 100%;
+      }
+
+      .carousel-inner img {
+        width: 100%;
+        height: 100%;
+        align: center;
+        /* margin: 20px, 20px, 20px, 20px; */
+      }
+
+      .pp {
+        columns: 4;
+      }
+    </style>
+
+    <script>
+      var s = document.getElementById("psp");
+      console.log(s);
+      // document.getElementById("pp").onclick = function() {};
+    </script>
+  </head>
+  <body class="">
+    <div class="main">
+      <a href="#"> GwonSunJo Room </a>
+      <a href="#"> LeeNoJin Room </a>
+      <a href="#"> LeeHimChan Room </a>
+      <a href="#"> JeongJinho Room </a>
+    </div>
+    <hr />
+    <div style="columns: 2; column-rule-width: 100px ">
+      <div id="demo" class="carousel slide" data-ride="carousel">
+        <ul class="carousel-indicators">
+          <li data-target="#demo" data-slide-to="0" class="active"></li>
+          <li data-target="#demo" data-slide-to="1"></li>
+        </ul>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="images/3.jpg" alt="Los Angeles" width="900" height="400" />
+            <div class="carousel-caption">
+              <p style="font-size: 190%">
+                ㅎㅇ
+              </p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="images/1.jpg" alt="New York" width="900" height="400" />
+            <div class="carousel-caption">
+              <p style="font-size: 190%">
+                ㅎㅇ.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <h2>심플한 자기소개</h2>
+        <p>누르면 나옵니다 자기소개</p>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-toggle="collapse"
+          data-target="#demo2"
+          id="bot"
+        >
+          권순조 자기 소개
+        </button>
+        <div id="demo2" class="collapse">
+          내가 니 나이때는 말이야?<br />
+          니가 아직 몰라서 그런는데<br />
+          기분 나쁘게 듣지 말고<br />
+          다 너 잘되라고 하는 말이야<br />
+          새겨들어, 이런 이야기는 돈주고 들어야돼<br />
+          <br />
+          <iframe
+            width="400"
+            height="200"
+            src="https://www.youtube.com/embed/jE9h_1-sJW4"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            id="ifr"
+          ></iframe>
+        </div>
+        <div style="display:none" , id="disno">
+          <input
+            class="btn btn-danger"
+            type="button"
+            value="레알 자기소개"
+            id="sos"
+          />
+        </div>
+      </div>
+    </div>
+    <hr />
+
+    <div class="pp" style="display: none" id="psp">
+      <div>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-toggle="collapse"
+          data-target="#demo1"
+        >
+          인생의 지혜
+        </button>
+        <div id="demo1" class="collapse">
+          이런건
+        </div>
+      </div>
+      <div>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-toggle="collapse"
+          data-target="#demo3"
+        >
+          탈무드
+        </button>
+        <div id="demo3" class="collapse">
+          함부로
+        </div>
+      </div>
+      <div>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-toggle="collapse"
+          data-target="#demo4"
+          id="demo4F"
+        >
+          조상의 지혜
+        </button>
+        <div id="demo4" class="collapse">
+          누르지 않는다.
+        </div>
+      </div>
+      <div>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-toggle="collapse"
+          data-target="#demo5"
+        >
+          진짜 자기소개
+        </button>
+        <div id="demo5" class="collapse">
+          <div class="fixed">
+            <iframe
+              src="https://www.youtube.com/embed/hQUJZGtoV-4?autoplay=1"
+              frameborder="0"
+              allowfullscreen
+              aligin="center"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="footer">
+      밥값이 너무 비싸요.. (후원 : 351-0096-0935-53 농협)
+    </div>
+  </body>
+
+  <script>
+    var s = document.getElementById("psp");
+    var ss = document.getElementById("demo4");
+    var sss = document.getElementById("disno");
+    var i = 0;
+    console.log(s);
+    console.log(document.getElementById("psp").style.display);
+    console.log(ss);
+    console.log(sss);
+
+    document.getElementById("sos").onclick = function() {
+      alert("조심하십쇼 바이러스가 있었다면 감염됬습니다");
+      document.getElementById("psp").style.display = "block";
+    };
+    document.getElementById("demo4F").onclick = function() {
+      for (var i = 1; i < 15; i++) {
+        alert("반성" + i);
+      }
+    };
+
+    document.getElementById("bot").onclick = function() {
+      document.getElementById("disno").style.display = "block";
+    };
+  </script>
+</html>

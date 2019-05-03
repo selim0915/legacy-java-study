@@ -29,6 +29,7 @@
 </head>
 <body>
 <%
+
 	//application.getInitParameter >> web.xml 가서 >>email값 사용
 	String param = application.getInitParameter("email");
 	out.println("<h3>"+ param + "</h3>");

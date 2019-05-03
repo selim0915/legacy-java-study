@@ -1,0 +1,59 @@
+<!DOCTYPE html> 
+<html> 
+<body> 
+
+<div style="text-align:center"> 
+  <br>
+  <h2>HTML Video</h2>
+  
+  <video id="video1" width="500px" controls autoplay poster="images/youtube1.jpg">
+    <source src="samplevideo/testvideo.mp4" type="video/mp4">
+    <source src="samplevideo/testvideo.ogg" type="video/ogg">
+    Your browser does not support HTML5 video.
+  </video>
+  <br><br>
+  <button onclick="playPause()">play/stop</button>
+  <button id="a" onclick="playLoop()" style="color:black">loop</button> 
+  <button onclick="makeBig()">Big</button>
+  <button onclick="makeSmall()">Small</button>
+  <button onclick="makeNormal()">Normal</button>
+  <br><br>
+</div> 
+
+<script> 
+var myVideo = document.getElementById("video1"); 
+
+function playPause() { 
+  if (myVideo.paused) 
+    myVideo.play(); 
+  else 
+    myVideo.pause(); 
+}
+
+function playLoop(){
+	myVideo.loop = !myVideo.loop;
+	console.log(myVideo.loop);
+	//console.log(document.getElementById("a").style.color="red");
+	if(myVideo.loop){
+		document.getElementById("a").style.color="red";
+	}else{
+		document.getElementById("a").style.color="black";
+	}
+	//console.log(myVideo.setAttribute("controls", "loop"));
+}
+
+function makeBig() { 
+    myVideo.width = 1000; 
+} 
+
+function makeSmall() { 
+    myVideo.width = 200; 
+} 
+
+function makeNormal() { 
+    myVideo.width = 500; 
+} 
+</script> 
+</body> 
+</html>
+

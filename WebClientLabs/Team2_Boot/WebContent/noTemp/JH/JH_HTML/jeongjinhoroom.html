@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+<style>
+	.main {
+	overflow : hidden;
+	background-color : gray;
+	margin: -8px;
+	}
+	.main a {
+	color : white;
+	display : block;
+	float : left;
+	text-align: center;
+	text-decoration: none;
+	padding: 10px 40px;
+	height: 20px
+	}
+	.main a2 {
+	color : white;
+	display : block;
+	float : left;
+	text-align: center;
+	text-decoration: none;
+	font-size : 11px;
+	padding: 2px
+	}
+	.main a1:hover {
+	background-color : LightGray;
+	color : black;
+	}
+	.main a1:visited {
+		 color: white;
+		 background-color: transparent;
+		 text-decoration: none;
+	}
+
+	.main a2:hover {
+	background-color : LightGray;
+	color : white;
+	}
+	.main a2:visited {
+		 color: white;
+		 background-color: transparent;
+		 text-decoration: none;
+		}
+	.font {
+	border:1px solid lightgray;
+	font-size : 15px;
+	float : left;
+	background-color : lightgray;
+	margin: 25px;
+	}
+	.font2 {
+	border:1px solid white;
+	font-size : 15px;
+	}
+	.row:after {
+ 	 content: "";
+ 	 display: table;
+ 	 clear: both;
+	}
+    #logo {
+    float : left;
+    clear : both; 
+    }
+    #logo a {
+    text-decoration: none;
+    }
+    #footer {
+    clear : both;
+    }
+    #footer.relative {
+  	position: relative;
+  	width: 100%;
+  	clear: both
+	} 
+	#pick {
+	margin: 5px 5px;
+	float : left;
+	width : 25%;
+	background-color : LightGray;
+	}
+	<!-- -->
+	.leftcolumn {   
+  float: left;
+  width: 70%;
+}
+
+/* Right column */
+.rightcolumn {
+  float: left;
+  width: 20%;
+  margin: 35px
+}
+
+/* Fake image */
+.fakeimg {
+  background-color: LightGray;
+  width: 100%;
+  padding: 20px;
+  
+}
+
+/* Add a card effect for articles */
+.card {
+  background-color: white;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  margin-top: 20px;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
+}
+p.test {
+  width: 140px; 
+  border: 1px solid LightGray;
+  word-break: keep-all;
+}
+</style>
+<meta charset="UTF-8">
+<title>2조 홈페이지</title>
+
+<script type="text/javascript">
+	function printTime() {
+		var clock = document.getElementById("clock");
+		var now = new Date(); 
+
+		
+		clock.innerHTML = 
+
+		now.getFullYear() + "년 " + 
+		(now.getMonth() + 1) + "월 " +
+		now.getDate() + "일 " + 
+		now.getHours() + "시 " + 
+		now.getMinutes() + "분 " + 
+		now.getSeconds() + "초";
+		setTimeout("printTime()", 1000); 
+		//1초마다 printTime()함수 호출
+	}
+	window.onload = function() {
+		printTime();
+	}
+	</script>
+</head>
+<body>
+
+<div class = main> 
+<div id = "logo">
+<a href="http://192.168.0.83:8090/WebClient/study2jo.html">
+	<img src="../JH_images/zzz.jpg" style= "max-width:100% ; height:auto; alt="비트캠프 2조 화이팅"> </a>
+	</div>
+</a>
+<a2><a href ="http://192.168.0.83:8090/WebClient/study2jo.html#"> <b>Main</b> </a></a2>
+<a2><a href ="http://192.168.0.19:8090/Webclient2/notempKwan.html"><b> GwonSunJo Room</b> </a></a2>
+<a2><a href ="http://192.168.0.86:8090/WebClient/Nojin_Page.html"> <b>LeeNoJin Room </b></a></a2>
+<a2><a href ="http://192.168.0.81:8090/WebClientLabs_Test/Hw01_HimChanPage.html"> <b>LeeHimChan Room </b></a></a2>
+<a2><a href ="http://192.168.0.83:8090/WebClient/jeongjinhoroom.html"><b> JeongJinho Room </b></a></a2>
+<a2><a href ="http://192.168.0.83:8090/WebClient/Sign2.html"> <b>Sign2</b> </a></a2>
+<a2><a href ="http://192.168.0.83:8090/WebClient/Sign.html" ><b> Sign</b> </a></a2>
+</div>
+<hr>
+
+
+<div class="row">
+  <div class="leftcolumn">
+    <div class="card">
+      <h2>간단한 자기소개</h2>
+      <h5>2019-04-02 화요일 작성</h5>
+      <div class="fakeimg" style="height:200px;">
+      <div id = "pick">
+<img src="../JH_images/my.jpg" style= "max-width:100% ; height:200px; alt="비트캠프 2조 화이팅">
+
+</div>
+<!--  --><h4 style = "color : black ; margin : 10px; padding: 10px">
+안녕하세요 ^~^!! 
+<br>
+왼쪽의 사진은 제 캐릭터를 넣어 봤습니다..
+<br>
+제 이름은 <strong style = "color : green">정진호</strong>입니다.
+<br>
+경기도 부천시 역곡쪽에 살고 있는 24살 <strong style = "color : green">알콜 쓰레기</strong>입니다.
+<br>
+홈페이지에 찾아와주셔서 감사합니다^^!
+
+</h4></div>
+    </div>
+    <div class="card">
+      
+      <h3> <p>최근 취미 활동</p></h3>
+      <h4> <ul>
+      		<li>볼링 치기</li>
+      		<li>당구 치기</li>
+      		<li>요리 하기</li>
+      		<li>보드 게임</li>
+      		</ul></h4>
+      <div class="fakeimg" style="height:200px; clear : both">
+		<img src="../JH_images/mod.JPG" style = "max-width : 100% ; height : 200px">
+		</div>
+      
+      <p>내용</p>
+    </div>
+  </div>
+  <div class="rightcolumn">
+    <div class="card">
+      <h2>후원 문의</h2>
+      <div class="fakeimg" style="height:100px;">
+		<p style = "margin : 0px"><strong style = "color : green">하나은행</strong><br>
+		<strong>222-910288-06907</strong><br>
+		도움의<strong style = "color : green"> 손길..</strong> <br>멀지 않은 곳에 있습니다..</p></div>
+    </div>
+    <div class="card">
+      <h3>2조 TOP3</h3>
+      <div class="fakeimg"><h4 style = "font-size : 20px; font-family : 맑은고딕">1. 이노진<br><br>2. 이힘찬<br><br>3. 권순조</h4></div>
+    </div>
+    <div class="card">
+      <h3>현재시간</h3>
+      <span id = clock></span>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <h2>BitCamp Homework</h2>
+  <br>
+</div>
+</body>
+</html>

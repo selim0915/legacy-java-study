@@ -60,7 +60,7 @@
          APR (HTTP/AJP) Connector: /docs/apr.html
          Define a non-SSL/TLS HTTP/1.1 Connector on port 8080
     -->
-    <Connector URIEncoding="UTF-8" connectionTimeout="20000" port="8090" protocol="HTTP/1.1" redirectPort="8443"/>
+    <Connector connectionTimeout="20000" port="8090" protocol="HTTP/1.1" redirectPort="8443"/>
     <!-- A "Connector" using the shared thread pool-->
     <!--
     <Connector executor="tomcatThreadPool"
@@ -149,7 +149,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="WebJSP" path="/WebJSP" reloadable="true" source="org.eclipse.jst.jee.server:WebJSP"/><Context docBase="WebJSP_JDBC_BASIC" path="/WebJSP_JDBC_BASIC" reloadable="true" source="org.eclipse.jst.jee.server:WebJSP_JDBC_BASIC"/><Context docBase="test" path="/test" reloadable="true" source="org.eclipse.jst.jee.server:test"/><Context docBase="WebJSP_JDBC_EL_JSTL" path="/WebJSP_JDBC_EL_JSTL" reloadable="true" source="org.eclipse.jst.jee.server:WebJSP_JDBC_EL_JSTL"/></Host>
+      <Context docBase="TeamHair" path="/TeamHair" reloadable="true" source="org.eclipse.jst.jee.server:TeamHair"/><Context docBase="Chart_Team4" path="/Chart_Team4" reloadable="true" source="org.eclipse.jst.jee.server:Chart_Team4"/></Host>
     </Engine>
   </Service>
 </Server>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+	$(function(){
+		var time = [];
+		var temp = [];
+		var hum = [];
+		var d = new Date;
+		
+		
+		
+		$.getJSON("http://api.openweathermap.org/data/2.5/forecast?q=Seoul&appid=4b5b8e450185ec143e5ca5bd6955ae18&units=metric",function(data){
+			
+			$.each(data.list,function(index,obj){
+				if(obj.dt_txt.substring(8,10)==d.getDate()+1){
+					time.push(obj.dt_txt.substring(11,16));
+					temp.push(obj.main.temp);
+					hum.push(obj.main.humidity);
+				}
+
+			});
+			
+			Highcharts.chart('container', {
+			    chart: {
+			        zoomType: 'xy'
+			    },
+			    title: {
+			        text: '서울 내일 날씨예보'
+			    },
+			    subtitle: {
+			        text: '출처 : openweathermap.org'
+			    },
+			    xAxis: [{
+			        categories: time,
+			        crosshair: true
+			    }],
+			    yAxis: [{ // Primary yAxis
+			        labels: {
+			            format: '{value}°C',
+			            style: {
+			                color: Highcharts.getOptions().colors[1]
+			            }
+			        },
+			        title: {
+			            text: 'Temperature',
+			            style: {
+			                color: Highcharts.getOptions().colors[1]
+			            }
+			        }
+			    }, { // Secondary yAxis
+			        title: {
+			            text: 'Humidity',
+			            style: {
+			                color: Highcharts.getOptions().colors[0]
+			            }
+			        },
+			        labels: {
+			            format: '{value} %',
+			            style: {
+			                color: Highcharts.getOptions().colors[0]
+			            }
+			        },
+			        opposite: true
+			    }],
+			    tooltip: {
+			        shared: true
+			    },
+			    legend: {
+			        layout: 'vertical',
+			        align: 'left',
+			        x: 120,
+			        verticalAlign: 'top',
+			        y: 100,
+			        floating: true,
+			        backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || 'rgba(255,255,255,0.25)'
+			    },
+			    series: [{
+			        name: 'Rainfall',
+			        type: 'column',
+			        yAxis: 1,
+			        data: hum,
+			        tooltip: {
+			            valueSuffix: ' mm'
+			        }
+
+			    }, {
+			        name: 'Temperature',
+			        type: 'spline',
+			        data: temp,
+			        tooltip: {
+			            valueSuffix: '°C'
+			        }
+			    }]
+			});
+			
+		});
+		console.log(time);
+		console.log(temp);
+		console.log(hum);
+		
+
+	
+					
+		
+			
+			
+			
+	});
+		
+</script>
+</head>
+<body>
+	<!-- <select name="day" id="day">
+      	<option value="rating">오늘</option>
+        <option value="download_count">내일</option>
+        <option value="like_count">모레</option>
+	</select>
+	
+	<input type="button" value="검색" id="btn" /> -->
+      
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+
+
+
+</body>
+
+</html>

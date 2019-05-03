@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>숫자 더하기</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  
+  <style>
+  .red{background : red;}
+  .green{background : green;}
+  .draggroup { display:inline; float:left; width: 50px; height: 50px;}
+  .droppable { display:inline; float:left; width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script type="text/javascript">
+  $( function() {
+	 var num1, num2, num3, result;
+	 
+    $( "#draggable" ).draggable();
+    $( "#draggable2" ).draggable();
+    $( "#draggable3" ).draggable();
+    $( "#draggable4" ).draggable();
+    $( "#draggable5" ).draggable();
+    $( "#draggable6" ).draggable();
+    $( "#draggable7" ).draggable();
+    $( "#draggable8" ).draggable();
+    $( "#draggable9" ).draggable();
+    $( "#draggable10" ).draggable();
+    
+    $( "#droppable" ).droppable({
+        drop: function( event, ui ) {
+        	num1 = ui.draggable.attr("value");
+        }
+      });
+    
+    $( "#droppable2" ).droppable({
+        drop: function( event, ui ) {
+			num2 = ui.draggable.attr("value");
+        }
+      });
+    
+    $( "#droppable3" ).droppable({
+        drop: function( event, ui ) {
+        	result = parseInt(num1) + parseInt(num2);
+        	num3 = parseInt(ui.draggable.attr("value"));
+            
+            if(result==num3){
+                $( this ).addClass( "green" );
+                $("#ok").dialog();
+                
+            }
+            else{
+                $( this ).addClass( "red" );
+			    $( "#no" ).dialog();
+            }
+        }
+      });
+    
+    $("#reset").click(function(){
+    	window.Location.href="Ui1.html";
+    });
+    
+  } );
+  </script>
+</head>
+<body>
+<div style="height: 100px; width: 600px;">
+	<!-- 숫자 10개 -->
+<center>
+<div id="draggable" value="1" class="draggroup ui-widget-content">
+  <p>1</p>
+</div>
+
+<div id="draggable2" value="2" class="draggroup ui-widget-content">
+  <p>2</p>
+</div>
+
+<div id="draggable3" value="3" class="draggroup ui-widget-content">
+  <p>3</p>
+</div>
+
+<div id="draggable4" value="4" class="draggroup ui-widget-content">
+  <p>4</p>
+</div>
+
+<div id="draggable5" value="5" class="draggroup ui-widget-content">
+  <p>5</p>
+</div>
+
+<div id="draggable6" value="6" class="draggroup ui-widget-content">
+  <p>6</p>
+</div>
+
+<div id="draggable7" value="7" class="draggroup ui-widget-content">
+  <p>7</p>
+</div>
+
+<div id="draggable8" value="8" class="draggroup ui-widget-content">
+  <p>8</p>
+</div>
+
+ <div id="draggable9" value="9" class="draggroup ui-widget-content">
+  <p>9</p>
+</div>
+ 
+ <div id="draggable10" value="10" class="draggroup ui-widget-content">
+  <p>10</p>
+</div>
+  </center>
+</div>
+ 
+ 
+<div style="height:200px; width:700px;">
+<!-- 고정 3칸 -->
+<div id="droppable" class="droppable ui-state-highlight">
+  <p><b>숫자1</b></p>
+</div>
+
+<center>
+<div style="display:inline; float:left; width: 50px; height: 168px;">
+  <p><br><br><br>+</p>
+</div>
+</center>
+
+<div id="droppable2" class="droppable ui-state-highlight">
+  <p><b>숫자2</b></p>
+</div> 
+
+<center>
+<div style="display:inline; float:left; width: 50px; height: 168px">
+  <p><br><br><br>=</p>
+</div>
+</center>
+
+<div id="droppable3" class="droppable ui-state-highlight">
+  <p><b>결과</b></p>
+</div>
+</div>
+<input type="button" value="리셋버튼" onclick="location.href='Ui1.html'"/>
+
+<div id="ok" title="알림창" style="display:none;">
+	<p>정답입니다 !</p>
+</div>
+
+<div id="no" title="알림창" style="display:none;">
+  <p>틀렸습니다 !<br>다른값을 넣어보세요</p>
+</div>
+
+</body>
+</html>

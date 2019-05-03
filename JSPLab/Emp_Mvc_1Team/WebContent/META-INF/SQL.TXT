@@ -1,0 +1,23 @@
+
+===========================
+ADMINLIST 생성
+===========================
+
+CREATE TABLE ADMINLIST (
+  USERID VARCHAR2(20),
+  PWD VARCHAR2(20)
+);
+
+INSERT INTO ADMINLIST(USERID, PWD) VALUES('admin','1234');
+
+COMMIT;
+
+
+=========================
+FILE UPLOAD
+=========================
+
+CREATE TABLE PIC_ATTACH (
+   EMPNO NUMBER,
+   FILENAME VARCHAR2(200)
+);

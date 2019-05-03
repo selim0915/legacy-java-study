@@ -1,9 +1,0 @@
-package kr.or.bit;
-
-import java.io.IOException;
-
-public class ExClass {
-	public ExClass(String path) throws IOException{
-		
-	}
-}

@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Slider - Range with fixed minimum</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/sunny/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+   <style type="text/css">
+       body {
+       font-family: Arial, Helvetica, sans-serif;
+     }
+     
+   .ui-progressbar {
+    position: relative;
+  }
+  .progress-label {
+  	font-weight: bold;
+    text-shadow: 1px 1px 0 #fff;
+  }
+    #progressbar {
+    margin-top: 20px;
+  }
+ 
+  .progress-label {
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #fff;
+  }
+ 
+  .ui-dialog-titlebar-close {
+    display: none;
+  }
+  </style>
+ 
+  <script>
+  
+  $(function() {
+	  var check = document.getElementsByName("radio-1");
+	  
+	  $('input').click(function(){
+	  var check = $("input:radio[name=radio-1]:checked").val();
+	  
+	  if(check == "p1"){
+		  $('#photo1').empty();
+		  $('#photo1').append('<div><img src = "images/1.png" id="mmichin"></div>');
+		  
+	  }else if(check == "p2"){
+		  $('#photo1').empty();
+		  $('#photo1').append('<div><img src = "images/2.png" id="mmichin"></div>');
+	  }else{
+		  $('#photo1').empty();
+		  $('#photo1').append('<div><img src = "images/3.png" id="mmichin"></div>');
+	  }
+	  });
+	 
+    $("input[name=radio-1]").checkboxradio();
+    $("#fieldset").controlgroup();
+
+    $( "#width").slider({
+      range: "min",
+      value: 1,
+      min: 100,
+      max: 500,
+      slide: function( event, ui ) {
+      	$( "#amount" ).val( ui.value );
+      }
+    });
+    $( "#amount" ).val( $( "#width" ).slider( "value" ) );
+
+    $( "#height" ).slider({
+        range: "min",
+        value: 1,
+        min: 100,
+        max: 500,
+        slide: function( event, ui ) {
+          $( "#amount2" ).val( ui.value ); 
+        }
+
+      });
+      $( "#amount2" ).val( $( "#height" ).slider( "value" ) );
+
+	   $('#downloadButton').click(function(){
+		  $('#mmichin').slideUp(0).delay(7900 ).slideDown( 0 ).css({
+			  width: $( "#width" ).slider( "value" ),
+			  height: $( "#height" ).slider( "value" )
+		  });
+	  });
+      
+      
+      var progressTimer,
+      progressbar = $( "#progressbar" ),
+      progressLabel = $( ".progress-label" ),
+      dialogButtons = [{
+        text: "취소",
+        click: closeDownload
+      }],
+      dialog = $( "#dialog" ).dialog({
+        autoOpen: false,
+        closeOnEscape: false,
+        resizable: false,
+        buttons: dialogButtons,
+        open: function() {
+          progressTimer = setTimeout( progress, 2000 );
+        },
+        beforeClose: function() {
+          downloadButton.button( "option", {
+            disabled: false,
+            label: "설정 저장"
+          });
+        }
+      }),
+      downloadButton = $( "#downloadButton" )
+        .button()
+        .on( "click", function() {
+          $( this ).button( "option", {
+            disabled: true,
+            label: "변환 중..."
+          });
+          dialog.dialog( "open" );
+        });
+ 
+    progressbar.progressbar({
+      value: false,
+      change: function() {
+        progressLabel.text( "잠시만 기다려주세요: " + progressbar.progressbar( "value" ) + "%" );
+      },
+      complete: function() {
+        progressLabel.text( "완료!!" );
+       
+        dialog.dialog( "option", "buttons", [{
+          text: "닫기",
+          click: closeDownload
+        }]);
+        $(".ui-dialog button").last().trigger( "focus" );
+      }
+    });
+ 
+    function progress() {
+      var val = progressbar.progressbar( "value" ) || 0;
+ 
+      progressbar.progressbar( "value", val + Math.floor( Math.random() * 3 ) );
+ 
+      if ( val <= 99 ) {
+        progressTimer = setTimeout( progress, 50 );
+      }
+    }
+ 
+    function closeDownload() {
+      clearTimeout( progressTimer );
+      dialog
+        .dialog( "option", "buttons", dialogButtons )
+        .dialog( "close" );
+      progressbar.progressbar( "value", false );
+      progressLabel
+        .text( "변환 중..." );
+      downloadButton.trigger( "focus" );
+    }
+  });
+  </script>
+ 
+</head>
+<body>
+ 	<div id = "photo">
+	<h3>사진을 선택 해주세요</h3>
+  <fieldset>
+    <label for="radio-1">사진1</label>
+    <input type="radio" name="radio-1" id="radio-1" value = "p1">
+    <label for="radio-2">사진2</label>
+    <input type="radio" name="radio-1" id="radio-2" value = "p2">
+    <label for="radio-3">사진3</label>
+    <input type="radio" name="radio-1" id="radio-3" value = "p3">
+  </fieldset>
+  <div id = "photo1"></div>
+  <div id = "photo2"></div>
+  <div id = "photo3"></div>
+
+	</div>
+ 
+<!-- <img src="images/1.png" alt="실수" id="mmichin">--> 
+<p>
+  width:<label for="amount"></label>
+  <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+</p>
+ 
+<div id="width"></div>
+<p>
+  height:<label for="amount2"></label>
+  <input type="text" id="amount2" readonly style="border:0; color:#f6931f; font-weight:bold;">
+</p>
+ 
+<div id="height"></div>
+<hr>
+<div id="dialog" title="이미지 인코딩">
+  <div class="progress-label">변환 중...</div>
+  <div id="progressbar"></div>
+</div>
+<button id="downloadButton">설정 저장</button>
+
+<!-- <input type="button" value="ssibal" id="michin"/> -->
+ 
+</body>
+</html>
