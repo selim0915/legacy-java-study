@@ -1,4 +1,0 @@
-hello는 word= C:\temp\a.txt
-hello는 word= C:\temp\file.txt
-hello는 word= C:\temp\Hidden.txt
-hello는 word= C:\temp\new.txt
