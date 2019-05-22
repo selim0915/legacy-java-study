@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 
+		IOC 컨테이너 (Spring 전용 메모리 공간) 안에 생성 될 [객체를 만들고 조립(의존)하는] 하게 설정하는 문서
+		=> xml, annotaion
+		=> DI_03.xml
+		
+		:제어의 역전 (프로그램의 제어구조를 바꾼다)
+		:작은 단위에 부품을 만들어 놓고, 그것을 조립하는 행위
+		
+		BookClient bookClient = new BookClient();
+		
+		Properties prop = new Properties();
+		prop.setProperty("server", "192.168.0.10");
+		prop.setProperty("connectiontimeout", "20000");
+		bookClient.setConfig(prop);
+		bookClient.connect();
+	 -->
+	
+	<bean id="bookClient" class="DI_10_Spring.BookClient">
+		<property name="config">
+			<props>
+				<prop key="server">192.168.0.10</prop>
+				<prop key="connectiontimeout">20000</prop>
+			</props>
+		</property>
+	</bean>
+	 
+</beans>

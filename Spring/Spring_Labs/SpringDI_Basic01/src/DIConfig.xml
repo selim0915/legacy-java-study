@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 
+		IOC 컨테이너 (Spring 전용 메모리 공간) 안에 생성 될 [객체를 만들고 조립(의존)하는] 하게 설정하는 문서
+		=> xml, annotaion
+		=> DIConfig.xml
+		
+		:제어의 역전 (프로그램의 제어구조를 바꾼다)
+		:작은 단위에 부품을 만들어 놓고, 그것을 조립하는 행위
+		
+		<객체생성코드>
+		NewRecordView view = new NewRecordView();
+		NewRecord record = new NewRecord();
+		=>객체생성코드를 xml로 가져올 거다.
+		
+		<객체를 만들고 주입하는 코드>
+		view.setRecord(record);
+		=>주입하는 코드도 xml로 가져옴
+		
+		>>private NewRecord record 변수
+		>>setter 함수가 구현되어있다.
+		>>public void setRecord(Record record) 함수 구현
+		**property name="record"은 setter함수를 구현하고 있는 변수이름을 그대로 사용 =record
+		ref="record"는 참조
+	 -->
+	 
+	 <bean id="record" class="Spring_DI4.NewRecord"></bean>
+	 <bean id="view" class="Spring_DI4.NewRecordView">
+	 	<property name="record" ref="record"></property>
+	 </bean>
+</beans>

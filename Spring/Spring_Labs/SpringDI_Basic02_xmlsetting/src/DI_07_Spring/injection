@@ -1,0 +1,12 @@
+1. DI (의존성 주입)
+1.1 : constructor injection
+1.2 : setter injection
+
+2. 주입 되는 대상(값)
+2.1 value : "홍길동", 1000
+2.2 객체(bean) ref한다
+2.3 Collection(java) (List, Set, Map) 연습..
+
+
+
+

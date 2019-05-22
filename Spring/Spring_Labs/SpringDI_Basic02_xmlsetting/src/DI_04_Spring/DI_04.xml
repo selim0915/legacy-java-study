@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 
+		IOC 컨테이너 (Spring 전용 메모리 공간) 안에 생성 될 [객체를 만들고 조립(의존)하는] 하게 설정하는 문서
+		=> xml, annotaion
+		=> DI_03.xml
+		
+		:제어의 역전 (프로그램의 제어구조를 바꾼다)
+		:작은 단위에 부품을 만들어 놓고, 그것을 조립하는 행위
+		
+		//객체생성
+		MessageBeanImpl messagebean = new MessageBeanImpl("hong"); //생성자 초기화
+		messagebean.setGreeting("hello"); //setter 초기화
+		
+		//메인함수의 역할
+		messagebean.sayHello();
+		
+		DI문법
+		<bean id = "한개의이름(식별자)" name="여러개의 이름 >> 구분자를 통해서 (, "" ;) 여러개의 이름 부여 가능 />
+		ex)
+		<bean id="" class="" name="m1, m2 m3; m4" /> 
+	 
+	 	**객체를 생성하고 필요한 객체를 주입
+	 	**주입방법: 생성자 주입(의무적)
+	 			setter함수 (일반적, 선택적)
+	 -->
+	 
+	 <bean id="messagebean" name="m1, m2 m3; m4" class="DI_04_Spring.MessageBeanImpl">
+	 	<!-- 
+	 	<constructor-arg>
+	 		<value>hong</value>
+	 	</constructor-arg>
+	 	 -->
+	 	 <constructor-arg value="hong"/>
+	 	 <!-- setter함수를 구현하고 있는 멤버필드명을 name에 기입 -->
+	 	 <property name="greeting">
+	 	 	<value>hello</value>
+	 	 </property> <!-- setter = property -->
+	 </bean>
+	  
+</beans>

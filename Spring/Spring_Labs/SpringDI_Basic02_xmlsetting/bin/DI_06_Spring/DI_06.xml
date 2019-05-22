@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 
+		IOC 컨테이너 (Spring 전용 메모리 공간) 안에 생성 될 [객체를 만들고 조립(의존)하는] 하게 설정하는 문서
+		=> xml, annotaion
+		=> DI_03.xml
+		
+		:제어의 역전 (프로그램의 제어구조를 바꾼다)
+		:작은 단위에 부품을 만들어 놓고, 그것을 조립하는 행위
+		
+		<java code>
+		OracleArticleDao oracle = new OracleArticleDao();
+		ArticleService service = new ArticleService(oracle);
+		Article article = new Article();
+		
+		service.write(article);
+	 -->
+	 
+	 <bean id="articledao" class="DI_06_Spring.MysqlArticleDao"></bean>
+	 <bean id="service" class="DI_06_Spring.ArticleService">
+	 	<constructor-arg>
+	 		<ref bean="articledao"></ref>
+	 	</constructor-arg>
+	 </bean>
+	 
+	 <bean id="article" class="DI_06_Spring.Article"></bean>
+</beans>
