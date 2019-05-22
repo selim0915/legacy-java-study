@@ -1,0 +1,11 @@
+[AspectJ 참고 사이트]
+  https://mvnrepository.com/artifact/org.aspectj/com.springsource.org.aspectj.tools 
+  https://eclipse.org/aspectj/downloads.php
+- 설명.1 : http://whiteship.me/?p=10243
+- 설명.2 : http://www.infoq.com/articles/Simplifying-Enterprise-Apps
+
+- 예제 : http://whiteship.me/?p=10243
+
+- 설명 :  http://www.egovframe.go.kr/wiki/doku.php?id=egovframework:rte:fdl:aop:aspectj
+
+- 표현식 : http://devjms.tistory.com/70
