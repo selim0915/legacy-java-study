@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context 
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+	<!-- 
+		XML파일
+		IOC컨테이너에 적재 될 bean객체 생성과 injection (DI)
+	 -->	
+	
+	<!-- 의존관계에 필요한 빈 객체 자동 생성
+	@Autowired, @Resource -->
+	<context:annotation-config/>
+	<!-- 공통빈 -->
+	<bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix">
+			<value>/WEB-INF/views/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+	</bean>
+	
+	<!-- TEST_1 -->
+	<!--  
+		compponent-scan 으로 작업하기 설명
+	-->
+	
+	<bean id="helloController" class="com.controller.HelloController"></bean>
+	
+	
+	<!-- TEST_2 -->
+	<!-- 
+		하나의 요청 주소: GET, POST 처리
+		화면단, 처리단 (로그인화면,로그인처리 : 글쓰기화면,글쓰기처리)
+		전제조건 : 요청 주소가 같다.
+		
+		id, name 참조가(injextion)이면 (0)
+		
+		@Autowired >> com.service.Article
+	 -->
+	 
+	 <bean class="com.controller.NewArticleController"></bean>
+	 <bean class="com.service.ArticleService"></bean>
+</beans>
+
+
