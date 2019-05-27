@@ -2,6 +2,9 @@ package com.service;
 
 import com.model.NewArticleCommand;
 
+//@Service하면 xml설정에서
+//<context:component-scan base-package="com.controller" />
+//작성할 필요없다.
 public class ArticleService {
 	public ArticleService() {
 		System.out.println("ArticleService 생성자 호출");
