@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+      "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+      "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+
+<tiles-definitions>
+	<definition name="hello" template="/template/layout.jsp">
+		<put-attribute name="title" value="[latout master page]"></put-attribute>
+		<put-attribute name="header" value="/template/header.jsp"></put-attribute>
+		<put-attribute name="menu" value="/template/menu.jsp"></put-attribute>
+		<put-attribute name="body" value="/hello_body.jsp"></put-attribute>
+		<put-attribute name="footer" value="/template/footer.jsp"></put-attribute>
+	</definition>
+	<!-- 문제점 : 사이트에 page가 100개 라면? <put-attribute name="body" value="/boardlist.jsp"> -->
+	<!-- 정의 파일 생성 .... <put-attribute name="title" value="itworld"></put-attribute> 
+		다르고 나머지는 같아요 -->
+	<definition name="itworld.base" template="/template/layout.jsp" >
+		<put-attribute name="title" value="itworld" />
+		<put-attribute name="header" value="/template/header.jsp" />
+		<put-attribute name="menu" value="/template/menu.jsp" />
+		<put-attribute name="body" value="/hello_body.jsp" />
+		<put-attribute name="footer" value="/template/footer.jsp" />
+	</definition>
+	
+	<!-- 상속의 개념 도입 -->
+	<definition name="itworldsub" extends="itworld.base">
+		<put-attribute name="title" value="subworld"/>
+	</definition>
+	
+</tiles-definitions>
+
+
