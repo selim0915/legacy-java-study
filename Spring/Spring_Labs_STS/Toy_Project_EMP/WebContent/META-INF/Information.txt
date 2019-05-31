@@ -1,0 +1,1 @@
+ALTER table emp add(del number); --fake delete

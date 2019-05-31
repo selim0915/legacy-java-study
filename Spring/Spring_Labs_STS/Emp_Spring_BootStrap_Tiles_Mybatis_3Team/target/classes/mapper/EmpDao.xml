@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.EmpDao">
+
+	<!-- 	
+	public int updateFakeEmp(String empno);
+	public int deleteEmp(int empno);
+	public int totalEmpMemberCount();
+	public List<EmpChartDto> hiredateTable();
+	public String hiredateChart();
+	public String salChart();
+	public String isCheckByEmpno(String empnoStr); 
+	
+	-->
+	
+	<!--  
+		int updateFakeEmp(String empno);
+		
+		update emp set del=? where empno=?";
+	-->
+	<update id="updateFakeEmp" parameterType="com.dto.EmpDto">
+		update emp set del=${param1} where empno=${param2}
+	</update>
+	
+	<!-- 
+		삭제하기 int deleteEmp(int empno);
+		
+		delete from emp where empno=?";
+	 -->
+	<delete id="deleteEmp">
+		delete from emp where empno=#{empno}
+	</delete>
+	
+	<!-- 
+		명수 세기: int totalEmpMemberCount();
+		
+		select count(*) cnt from emp where del is null or del=0";
+	 -->
+	 <select id="totalEmpMemberCount" resultType="Integer">
+	 	select count(*) cnt 
+	 	from emp 
+	 	where del is null or del=#{del}
+	 </select>
+	 
+	 <!-- 
+	 리스트에 표 뿌리기 : List<EmpChartDto> hiredateTable();
+	 
+	 SELECT TO_CHAR(HIREDATE,'YYYY') 입사년도 , COUNT(*) 인원수 
+	 FROM emp 
+	 GROUP BY TO_CHAR(HIREDATE,'YYYY') 
+	 ORDER BY TO_CHAR(HIREDATE,'YYYY')";
+	  -->
+	 <select id="hiredateTable" resultType="com.dto.EmpChartDto">
+	 	SELECT TO_CHAR(HIREDATE,'YYYY') 입사년도 , COUNT(*) 인원수 
+	 	FROM emp 
+	 	GROUP BY TO_CHAR(HIREDATE,'YYYY') 
+	 	ORDER BY TO_CHAR(HIREDATE,'YYYY')
+	 </select>
+	 
+	 <!-- 
+	 차트1 비동기객체생성 후 보내기 String hiredateChart();
+	 
+	 SELECT TO_CHAR(HIREDATE,'YYYY'), COUNT(*) 
+	 FROM emp 
+	 GROUP BY TO_CHAR(HIREDATE,'YYYY') 
+	 ORDER BY TO_CHAR(HIREDATE,'YYYY')";
+	  -->
+	 <select id="hiredateChart" resultType="com.dto.EmpChartDto">
+	 	SELECT TO_CHAR(HIREDATE,'YYYY'), COUNT(*) 
+		 FROM emp 
+		 GROUP BY TO_CHAR(HIREDATE,'YYYY') 
+		 ORDER BY TO_CHAR(HIREDATE,'YYYY')
+	 </select>
+
+
+	<!-- 
+	차트2비동기 : String salChart();
+	
+	SELECT sal, ename FROM emp
+	 -->
+	<select id="salChart" resultType="com.dto.EmpChartDto">
+		SELECT sal, ename 
+		FROM emp
+	</select>
+	 
+	<!-- 
+	추가 함수 String isCheckByEmpno(String empnoStr); 
+	
+	select empno from emp where empno=?
+	 -->
+	<select id="isCheckByEmpno" resultType="com.dto.EmpChartDto">
+		select empno 
+		from emp 
+		where empno=#{empno}
+	</select>
+	 
+</mapper>
