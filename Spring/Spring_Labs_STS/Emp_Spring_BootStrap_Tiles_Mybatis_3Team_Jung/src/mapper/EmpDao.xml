@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.EmpDao">
+
+	<select id="getEmpList" resultType="dto.EmpDto">
+		select * from emp where empno=#{id}
+	</select>
+
+	<select id="getEmpListAll" resultType="dto.EmpDto">
+		select * from emp where del is null or del=0
+	</select>
+	
+	<select id="getEmpListLike" resultType="dto.EmpDto">
+		select * from emp 
+		where (del is null or del=0) and 
+		       (EMPNO like '%${intValue}%' or DEPTNO like '%${intValue}%')
+	</select>
+	
+	<insert id="AddEmpMember" parameterType="dto.EmpDto">
+		insert into emp(empno, ename, job, mgr, hiredate, sal, comm, deptno) 
+		values(#{empno},#{ename},#{job},#{mgr},#{hiredate},#{sal},#{comm},#{deptno})
+	</insert>
+	
+	<update id="updateEmp" parameterType="dto.EmpDto">
+		update emp 
+			set empno=#{empno}, ename=#{ename}, job=#{job}, mgr=#{mgr}, hiredate=#{hiredate}, sal=#{sal}, comm=#{comm}, deptno=#{deptno} 
+		where empno=#{empno}
+	</update>
+	
+	<update id="updateFakeEmp">
+		update emp set del=1 where empno=#{empno}
+	</update>
+	
+	<delete id="deleteEmp">
+		delete from emp where empno=#{empno}
+	</delete>
+	
+	<select id="totalEmpMemberCount" resultType="Integer">
+		select count(*) cnt from emp where del is null or del=0
+	</select>
+	
+	<select id="hiredateTable" resultType="dto.EmpChartDto">
+		SELECT TO_CHAR(HIREDATE,'YYYY') 입사년도 , COUNT(*) 인원수 
+		FROM emp 
+		GROUP BY TO_CHAR(HIREDATE,'YYYY') 
+		ORDER BY TO_CHAR(HIREDATE,'YYYY')
+	</select>
+	
+	<select id="hiredateChart" resultType="dto.EmpChartDto">
+		SELECT TO_CHAR(HIREDATE,'YYYY'), COUNT(*) 
+		FROM emp 
+		GROUP BY TO_CHAR(HIREDATE,'YYYY') 
+		ORDER BY TO_CHAR(HIREDATE,'YYYY')
+	</select>
+	
+	<select id="salChart" resultType="dto.EmpChartDto">
+		SELECT sal, ename FROM emp
+	</select>
+	
+	<select id="isCheckByEmpno" resultType="String">
+		select empno from emp where empno=#{empnoStr}
+	</select>
+	
+	
+	
+</mapper>
+
+
+

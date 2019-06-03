@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+
+   <definition name="home.*" template="/WEB-INF/views/common/Layout.jsp">
+   	    <put-attribute name="top"  value="/WEB-INF/views/common/Top.jsp" />
+   	    <put-attribute name="left"  value="/WEB-INF/views/common/Left.jsp" />
+    	<put-attribute name="bottom"  value="/WEB-INF/views/common/Bottom.jsp" />
+    	<put-attribute name="content" value="/WEB-INF/views/{1}.jsp" />
+   </definition>
+
+</tiles-definitions> 
+
+
+
+
